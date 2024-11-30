@@ -27,7 +27,7 @@
                 <b class="logo-abbr"><img src="" alt=""></b>
                 <span class="logo-compact"> <img src="" alt=""></span>
                 <span class="brand-title">
-                    <h4 style="font-size:30px; font-weight: bolder; color: #fff;">BOOKING</h4>
+                    <h4 style="font-size:30px; font-weight: bolder; color: #fff;">E-KTP</h4>
                 </span>
             </a>
         </div>
@@ -49,114 +49,7 @@
             </div>
             <div class="header-right">
                 <ul class="clearfix">
-                    <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                            <i class="mdi mdi-email-outline"></i>
-                            <span class="badge gradient-1 badge-pill badge-primary">3</span>
-                        </a>
-                        <div class="drop-down animated fadeIn dropdown-menu">
-                            <div class="dropdown-content-heading d-flex justify-content-between">
-                                <span class="">3 New Messages</span>
 
-                            </div>
-                            <div class="dropdown-content-body">
-                                <ul>
-                                    <li class="notification-unread">
-                                        <a href="javascript:void()">
-                                            <img class="float-left mr-3 avatar-img" src="app/views/assets/images/avatar/1.jpg" alt="">
-                                            <div class="notification-content">
-                                                <div class="notification-heading">Saiful Islam</div>
-                                                <div class="notification-timestamp">08 Hours ago</div>
-                                                <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="notification-unread">
-                                        <a href="javascript:void()">
-                                            <img class="float-left mr-3 avatar-img" src="app/views/assets/images/avatar/2.jpg" alt="">
-                                            <div class="notification-content">
-                                                <div class="notification-heading">Adam Smith</div>
-                                                <div class="notification-timestamp">08 Hours ago</div>
-                                                <div class="notification-text">Can you do me a favour?</div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void()">
-                                            <img class="float-left mr-3 avatar-img" src="app/views/assets/images/avatar/3.jpg" alt="">
-                                            <div class="notification-content">
-                                                <div class="notification-heading">Barak Obama</div>
-                                                <div class="notification-timestamp">08 Hours ago</div>
-                                                <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void()">
-                                            <img class="float-left mr-3 avatar-img" src="app/views/assets/images/avatar/4.jpg" alt="">
-                                            <div class="notification-content">
-                                                <div class="notification-heading">Hilari Clinton</div>
-                                                <div class="notification-timestamp">08 Hours ago</div>
-                                                <div class="notification-text">Hello</div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                            <i class="mdi mdi-bell-outline"></i>
-                            <span class="badge badge-pill gradient-2 badge-primary">3</span>
-                        </a>
-                        <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
-                            <div class="dropdown-content-heading d-flex justify-content-between">
-                                <span class="">2 New Notifications</span>
-
-                            </div>
-                            <div class="dropdown-content-body">
-                                <ul>
-                                    <li>
-                                        <a href="javascript:void()">
-                                            <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
-                                            <div class="notification-content">
-                                                <h6 class="notification-heading">Events near you</h6>
-                                                <span class="notification-text">Within next 5 days</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void()">
-                                            <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                            <div class="notification-content">
-                                                <h6 class="notification-heading">Event Started</h6>
-                                                <span class="notification-text">One hour ago</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void()">
-                                            <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
-                                            <div class="notification-content">
-                                                <h6 class="notification-heading">Event Ended Successfully</h6>
-                                                <span class="notification-text">One hour ago</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void()">
-                                            <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                            <div class="notification-content">
-                                                <h6 class="notification-heading">Events to Join</h6>
-                                                <span class="notification-text">After two days</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </li>
                     <li class="icons dropdown d-none d-md-flex">
                         <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
                             <span>English</span> <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
@@ -172,8 +65,8 @@
                     </li>
                     <li class="icons dropdown">
                         <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                            <span class="activity active"></span>
-                            <img src="app/views/assets/images/avatar/1.jpg" height="40" width="40" alt="">
+                        <span class="activity active"></span>
+                        <i class="fas fa-user-circle" style="font-size: 40px; color: #009BF4;"></i> 
                         </div>
                         <div class="drop-down dropdown-profile   dropdown-menu">
                             <div class="dropdown-content-body">
@@ -215,47 +108,11 @@
                 <li class="nav-label">Apps</li>
                 <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="fas fa-user menu-icon"></i> <span class="nav-text">User</span>
+                        <i class="fas fa-address-card menu-icon"></i> <span class="nav-text">Validasi</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="index.php?action=rUser">User</a></li>
-                        <li><a href="index.php?action=cUser">Add User</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="fas fa-users menu-icon"></i> <span class="nav-text">Guest</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="index.php?action=rTamu">Guest</a></li>
-                        <li><a href="index.php?action=cTamu">Add Guest</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="fas fa-wallet menu-icon"></i> <span class="nav-text">Payment</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="index.php?action=rPembayaran">Payment</a></li>
-                        <li><a href="index.php?action=cPembayaran">Add Payment</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="fas fa-book menu-icon"></i> <span class="nav-text">Reservation</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="index.php?action=rPemesanan">Reservation</a></li>
-                        <li><a href="index.php?action=cPemesanan">Add Reservation</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="fas fa-home menu-icon"></i> <span class="nav-text">Room</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="index.php?action=rInfokamar">Room</a></li>
-                        <li><a href="index.php?action=cInfokamar">Add Room</a></li>
+                        <li><a href="index.php?action=rUser">Pengajuan</a></li>
+                        <li><a href="index.php?action=rInfokamar">Pembuatan</a></li>
                     </ul>
                 </li>
             </ul>
