@@ -13,10 +13,11 @@ $pemesananController = new pemesananController();
 $dashboardController = new dashboardController();
 session_start();
 $action = isset($_GET['action']) ? $_GET['action'] : '';
+
 $id = isset($_GET['id']) ? $_GET['id'] : '';
-if (!isset($_SESSION["login"]) && $action != '') {
-    $action = "index.php";
-}
+// if (!isset($_SESSION["login"]) && $action != '') {
+//     $action = "index.php";
+// }
 if (isset($_SESSION['role']) && $_SESSION['role'] != "admin") {
     switch ($action) {
         case "rUser":
@@ -31,8 +32,11 @@ if (isset($_SESSION['role']) && $_SESSION['role'] != "admin") {
             break;
     }
 }
-
 switch ($action) {
+    case "regis":
+        $_SESSION['page'] = "Registrasi";
+        $userController->regis();
+        break;
     case "rTamu":
         $_SESSION['page'] = "Guest";
         require "app/views/components/headers.php";
@@ -186,7 +190,6 @@ switch ($action) {
         break;
     default:
         $_SESSION['page'] = "Login";
-        require "app/views/components/headers.php";
         $userController->login();
         break;
 }

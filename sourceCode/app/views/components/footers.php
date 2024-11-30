@@ -17,8 +17,3 @@
 include "app/views/components/scripts.php"
 
 ?>
- 
-</body>
-
-
-</html>
