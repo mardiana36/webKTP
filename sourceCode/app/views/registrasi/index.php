@@ -14,64 +14,58 @@
     <script src="app/views/assets/js/login.js" ></script>
     <script src="app/views/assets/js/nav.js" ></script>
 </head>
-
 <body>
-<?php
+<main>
+    <?php
     require('app/views/components/navbarUser.php')
     ?>
-    <main>
-        <section class="container containerLogin">
+     <section class="container containerLogin">
             <div class="content contentLogin">
                 <div class="cardLogin">
                     <div class="containerTitle">
-                        <h1>Login</h1>
+                        <h1>Registrasi</h1>
                     </div>
-
-                    <form action="" class="formLogin">
+                    <form action="" class="formRegis formLogin">
                         <div class="divInputLogin">
-                            <label for="emailLogin">Email / Username</label>
-                            <input type="email" id="emailLogin" required autocomplete="email">
+                            <label for="userName" >Username</label>
+                            <input type="text" id="userName" required autocomplete="">
                             <div class="divIconLogin">
                                 <i class='bx bxs-user'></i>
                             </div>
                         </div>
                         <div class="divInputLogin">
-                            <label for="passwordLogin">Password</label>
-                            <input type="password" minlength="8" key="password" class="statusActive" id="passwordLogin" required autocomplete="current-password">
+                            <label for="emailRegis" >Email</label>
+                            <input type="email" id="emailRegis" required autocomplete="email">
+                            <div class="divIconLogin">
+                                <i class='bx bxs-envelope'></i>
+                            </div>
+                        </div>
+                        <div class="divInputLogin">
+                            <label for="passwordRegis">Password</label>
+                            <input type="password" minlength="8" key="password" class="statusActive" id="passwordRegis" required autocomplete="current-password">
                             <div class="divIconLogin">
                                 <i class='bx bxs-lock iconPassword'></i>
                             </div>
                             <div id="checkPassword">
-                                <div>
-                                    <p>Mudah</p>
-                                </div>
-                                <div>
-                                    <p>Normal</p>
-                                </div>
-                                <div>
-                                    <p>Aman</p>
-                                </div>
-                                <div>
-                                    <p>Sangat Aman</p>
-                                </div>
+                                <div><p>Mudah</p></div>
+                                <div><p>Normal</p></div>
+                                <div><p>Aman</p></div>
+                                <div><p>Sangat Aman</p></div>
                             </div>
                         </div>
-                        <div class="divForgetPw">
-                            <a href="">Lupa Password</a>
-                        </div>
-                        <div class="divBtnLogin">
+                        <div class="divBtnLogin divBtnRegis">
                             <div>
-                                <input type="submit" id="btnSubmit" value="Masuk">
+                                <input type="submit" id="btnSubmitR" value="Registrasi">
                             </div>
                         </div>
                         <div>
-                            <p>Atau login dengan</p>
+                            <p>Atau daftar dengan</p>
                             <div class="divOtherLogin">
                                 <a href=""><i class='bx bxl-google'></i>Google</a href="">
                                 <a href=""><i class='bx bxl-facebook'></i>Facebook</a href="">
                             </div>
                             <div class="linkRegisterd">
-                                <p>Belum punya akun? Ayo <a href="">Registrasi</a></p>
+                                <p>Sudah punya akun? Silahkan <a href="login.html">Login</a></p>
                             </div>
                         </div>
                     </form>

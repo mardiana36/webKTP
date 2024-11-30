@@ -38,8 +38,11 @@ class userController
                 echo "<script>window.location.href = 'index.php?action=loginFalse';</script>";
             }
         } else {
-            require "app/views/login/index.php";
+            require "app/views/Login/index.php";
         }
+    }
+    public function regis(){
+        require "app/views/registrasi/index.php";
     }
     public function logout()
     {
