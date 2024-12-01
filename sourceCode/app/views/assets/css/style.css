@@ -5238,7 +5238,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #7571f9;
+  color: #009bf4;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -5275,8 +5275,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 1;
   color: #fff;
-  background-color: #7571f9;
-  border-color: #7571f9;
+  background-color: #009bf4;
+  border-color: #009bf4;
 }
 
 .page-item.disabled .page-link {
@@ -5724,8 +5724,8 @@ input[type="button"].btn-block {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #7571f9;
-  border-color: #7571f9;
+  background-color: #009bf4;
+  border-color: #009bf4;
 }
 
 .list-group-flush .list-group-item {

@@ -166,19 +166,3 @@
   cursor: pointer;
   border-radius: 5px;
 }
-
-.button-container {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.custom-button {
-  background-color: #009bf4;
-  color: white;
-  border: none;
-  padding: 5px 30px;
-  cursor: pointer;
-  border-radius: 5px;
-}

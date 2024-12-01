@@ -36,17 +36,17 @@
                                                  <td><?= $u['role'] ?></td>
                                                  <td>
                                                      <span>
-                                                        <a href="index.php?action=uUser&id=<?= $u['id'] ?>" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <a href="index.php?action=cUser&id=<?= $u['id'] ?>" data-toggle="tooltip" data-placement="top" title="View">
                                                         <button class="button-aksi">
                                                              <i class="fa fa-eye color-muted m-r-5 "></i>
                                                         </button>
                                                         </a>
-                                                        <a href="index.php?action=dUser&id=<?= $u['id'] ?>"  class="sweet-confirm"  data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        <a href="index.php?action=uUser&id=<?= $u['id'] ?>"  class=""  data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <button class="button-aksi">
                                                              <i class="fa fa-pencil color-muted m-r-5 "></i>
                                                             </button>
                                                         </a>
-                                                         <a href="index.php?action=dUser&id=<?= $u['id'] ?>"  class="sweet-confirm"  data-toggle="tooltip" data-placement="top" title="Delete">
+                                                         <a href="index.php?action=dUser&id=<?= $u['id'] ?>"  class="sweet-confirm"  data-toggle="tooltip" data-placement="top" title="Approve">
                                                             <button class="button-aksi">
                                                              <i class="fa fa-check color-muted m-r-5 "></i>
                                                             </button>

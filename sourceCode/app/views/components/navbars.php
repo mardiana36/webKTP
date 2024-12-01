@@ -65,7 +65,7 @@
                     </li>
                     <li class="icons dropdown">
                         <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                        <span class="activity active"></span>
+                        
                         <i class="fas fa-user-circle" style="font-size: 40px; color: #009BF4;"></i> 
                         </div>
                         <div class="drop-down dropdown-profile   dropdown-menu">

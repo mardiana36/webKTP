@@ -42,7 +42,7 @@
                                                              <i class="fa fa-pencil color-muted m-r-5 "></i>
                                                             </button>
                                                         </a>
-                                                        <a href="index.php?action=dInfokamar&id=<?=$ik['id']?>" data-toggle="tooltip" class="sweet-confirm" data-placement="top" title="Delete">
+                                                        <a href="index.php?action=dInfokamar&id=<?=$ik['id']?>" data-toggle="tooltip"  data-placement="top" title="Approve">
                                                             <button class="button-aksi">
                                                              <i class="fa fa-check color-muted m-r-5 "></i>
                                                             </button>

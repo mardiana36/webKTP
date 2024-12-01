@@ -125,7 +125,8 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" class="btn btn-primary" style="background-color: #009BF4;">Submit</button>
+
                                             </div>
                                         </div>
                                     </form>
