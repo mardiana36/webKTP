@@ -8,16 +8,16 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Room Data</h4>
+                        <h4 class="card-title">Data Pembuatan KTP</h4>
                         <div class="table-responsive">
                             <table class="table table-hover  zero-configuration">
                                 <thead>
                                     <tr class="gradient-1" style="text-wrap: nowrap">
                                         <th>Number</th>
-                                        <th>Image</th>
-                                        <th>Room Number</th>
-                                        <th>Room Tipe</th>
-                                        <th>Price</th>
+                                        <th>Pas Foto</th>
+                                        <th>Tanda Tangan</th>
+                                        <th>Nama</th>
+                                        <th>NIK</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -38,10 +38,14 @@
                                                 <td>
                                                     <span>
                                                         <a href="index.php?action=uInfokamar&id=<?=$ik['id']?>" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="fa fa-pencil color-muted m-r-5"></i>
+                                                            <button class="button-aksi">
+                                                             <i class="fa fa-pencil color-muted m-r-5 "></i>
+                                                            </button>
                                                         </a>
-                                                        <a href="index.php?action=dInfokamar&id=<?=$ik['id']?>" data-toggle="tooltip" class="sweet-confirm" data-placement="top" title="Delete">
-                                                            <i class="fa fa-close color-danger"></i>
+                                                        <a href="index.php?action=dInfokamar&id=<?=$ik['id']?>" data-toggle="tooltip"  data-placement="top" title="Approve">
+                                                            <button class="button-aksi">
+                                                             <i class="fa fa-check color-muted m-r-5 "></i>
+                                                            </button>
                                                         </a>
                                                     </span>
                                                 </td>
@@ -52,10 +56,10 @@
                                 <tfoot>
                                     <tr>
                                         <th>Number</th>
-                                        <th>Image</th>
-                                        <th>Payment Method</th>
-                                        <th>Payment Date</th>
-                                        <th>Price</th>
+                                        <th>Pas Foto</th>
+                                        <th>Tanda Tangan</th>
+                                        <th>Nama</th>
+                                        <th>NIK</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>

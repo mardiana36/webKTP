@@ -5,20 +5,21 @@
 
      <div class="container-fluid">
          <div class="row">
+            </div>
              <div class="col-12">
                  <div class="card">
                      <div class="card-body">
-                         <h4 class="card-title">User Data</h4>
+                         <h4 class="card-title">Validasi Pengajuan KTP</h4>
                          <div class="table-responsive">
                              <table class="table table-hover  zero-configuration">
                                  <thead>
                                      <tr class="gradient-1" style="text-wrap: nowrap">
                                          <th>Number</th>
-                                         <th>Username</th>
-                                         <th>Password</th>
-                                         <th>Email</th>
-                                         <th>Role</th>
-                                         <th>Action</th>
+                                         <th>Foto KK</th>
+                                         <th>Foto Surat Pengantar</th>
+                                         <th>Nama</th>
+                                         <th>NIK</th>
+                                         <th>Aksi</th>
                                      </tr>
                                  </thead>
                                  <tbody>
@@ -35,12 +36,20 @@
                                                  <td><?= $u['role'] ?></td>
                                                  <td>
                                                      <span>
-                                                         <a href="index.php?action=uUser&id=<?= $u['id'] ?>" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <a href="index.php?action=cUser&id=<?= $u['id'] ?>" data-toggle="tooltip" data-placement="top" title="View">
+                                                        <button class="button-aksi">
+                                                             <i class="fa fa-eye color-muted m-r-5 "></i>
+                                                        </button>
+                                                        </a>
+                                                        <a href="index.php?action=uUser&id=<?= $u['id'] ?>"  class=""  data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <button class="button-aksi">
                                                              <i class="fa fa-pencil color-muted m-r-5 "></i>
-                                                         </a>
-
-                                                         <a href="index.php?action=dUser&id=<?= $u['id'] ?>"  class="sweet-confirm"  data-toggle="tooltip" data-placement="top" title="Delete">
-                                                             <i class="fa fa-close color-danger"></i>
+                                                            </button>
+                                                        </a>
+                                                         <a href="index.php?action=dUser&id=<?= $u['id'] ?>"  class="sweet-confirm"  data-toggle="tooltip" data-placement="top" title="Approve">
+                                                            <button class="button-aksi">
+                                                             <i class="fa fa-check color-muted m-r-5 "></i>
+                                                            </button>
                                                          </a>
                                                      </span>
                                                  </td>
@@ -51,11 +60,11 @@
                                  <tfoot>
                                      <tr>
                                          <th>Number</th>
-                                         <th>Username</th>
-                                         <th>Password</th>
-                                         <th>Email</th>
-                                         <th>Role</th>
-                                         <th>Action</th>
+                                         <th>Foto KK</th>
+                                         <th>Foto Surat Pengantar</th>
+                                         <th>Nama</th>
+                                         <th>NIK</th>
+                                         <th>Aksi</th>
                                      </tr>
                                  </tfoot>
                              </table>
