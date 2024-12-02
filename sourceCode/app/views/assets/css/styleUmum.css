@@ -2,16 +2,17 @@ body {
     --Blue: #009BF4;
     --white: #ffffff;
     --black: #424242;
-    --darkModeColorW:#ffffff;
-    --darkModeColorB:#424242;
+    --darkModeColorW: #ffffff;
+    --darkModeColorB: #424242;
     --colorPalceholder: #8f8f8f;
-    --brightness: brightness(100%); 
+    --brightness: brightness(100%);
 }
-.bodyDarkmode{
-    --darkModeColorW:#1c364f;
-    --darkModeColorB:#ffffff;
+
+.bodyDarkmode {
+    --darkModeColorW: #1c364f;
+    --darkModeColorB: #ffffff;
     --colorPalceholder: #ffffff;
-    --brightness: brightness(50%); 
+    --brightness: brightness(50%);
 }
 
 * {
@@ -21,15 +22,17 @@ body {
     box-sizing: border-box;
     font-family: sans-serif;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     width: 5px;
     scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: var(--Blue);
     border-radius: 5px;
 }
+
 a {
     display: inline-block;
 }
@@ -40,13 +43,15 @@ body {
     font-size: 1em;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh !important;
     overflow-x: hidden;
     color: var(--black);
     background-color: var(--darkModeColorW);
     transition: all 0.5s ease-in-out;
 }
-
+main{
+    min-height:inherit;
+}
 .container {
     display: grid;
     grid-template-columns: auto;
@@ -60,12 +65,13 @@ body {
 }
 
 /* navbar */
-.site-header{
+.site-header {
     position: sticky;
     top: 0;
     background-color: var(--darkModeColorW);
     z-index: 10000;
 }
+
 .nav-content {
     display: flex;
     justify-content: space-between;
@@ -74,7 +80,7 @@ body {
     padding: 0px !important;
     max-height: inherit;
     height: 60px;
-    gap:20px;
+    gap: 20px;
 }
 
 .nav-card {
@@ -84,7 +90,8 @@ body {
     align-items: center;
     max-height: inherit;
 }
-.nav-card > div{
+
+.nav-card>div {
     display: flex;
     list-style-type: none;
     gap: 1rem;
@@ -100,9 +107,11 @@ body {
     font-weight: 600;
     transition: all 0.5s ease-in-out;
 }
-.showHideNav > a:hover, .showHideNav > div:hover> a{
+
+.showHideNav>a:hover, .showHideNav>div:hover>a {
     border-bottom: 2px solid var(--Blue);
 }
+
 .logo-web {
     font-size: 2rem;
     font-weight: 900 !important;
@@ -146,9 +155,11 @@ body {
     margin-right: 10px;
     padding-right: 10px;
 }
-.dashboardNav{
+
+.dashboardNav {
     display: none;
 }
+
 .container-drop span {
     display: flex;
     align-items: center;
@@ -166,7 +177,7 @@ body {
     transform: translateY(-50px);
 }
 
-.container-drop:hover  div {
+.container-drop:hover div {
     opacity: 1;
     width: 100%;
     height: 100%;
@@ -209,9 +220,11 @@ body {
     font-size: 40px;
     color: var(--Blue);
 }
-#iconNavResponsif{
+
+#iconNavResponsif {
     display: none;
 }
+
 .nav-dropUser {
     transform: translateX(-150px);
     visibility: hidden;
@@ -249,19 +262,23 @@ body {
     transform: translateX(-90%);
     text-wrap: wrap;
 }
-#dropDown3 div{
+
+#dropDown3 div {
     transform: translateY(0px);
 }
-.nav-dropNotif > div {
+
+.nav-dropNotif>div {
     width: 500px !important;
     height: max-content !important;
     border: unset !important;
     background-color: var(--Blue);
     box-shadow: 0px 5px 20px #4242423e;
 }
-.nav-dropNotif  div{
+
+.nav-dropNotif div {
     width: 100%;
 }
+
 #divNotif, #divNotif>div>div {
     border: none !important;
 }
@@ -292,7 +309,7 @@ body {
 }
 
 .titleNotif {
-    color: var(--darkModeColorW)!important;
+    color: var(--darkModeColorW) !important;
     border-bottom: 2px dashed var(--darkModeColorW);
     margin-bottom: 10px;
 }
@@ -303,18 +320,25 @@ body {
     gap: 15px;
     background-color: var(--Blue);
 }
-#divNotif > div > div >p{
+
+#divNotif>div>div>p {
     text-wrap: nowrap;
     color: var(--lightBlue);
 }
-main{
-    margin-bottom: 40px;
-}
-#divNavResponsif{
+
+#divNavResponsif {
     margin-left: 40px;
 }
-@media screen and (max-width: 1136px){
-    #divNavResponsif{
+
+footer {
+    display: flex !important;
+    justify-content: center;
+    padding: 20px;
+    border-top: 2px solid var(--Blue);
+}
+
+@media screen and (max-width: 1136px) {
+    #divNavResponsif {
         left: 0;
         margin: 0;
         flex-direction: column;
@@ -327,7 +351,8 @@ main{
         box-shadow: 0px 5px 5px #4242423e;
         border-radius: 10px;
     }
-    #iconNavResponsif{
+
+    #iconNavResponsif {
         display: inline-block;
         font-size: 30px;
         cursor: pointer;
@@ -336,50 +361,63 @@ main{
         padding: 5px;
         border-radius: 5px;
     }
-    .content{
+
+    .content {
         width: 90vw;
     }
 }
+
 @media screen and (max-width:600px) {
-    .logo-web{
+    .logo-web {
         font-size: 1.5rem;
     }
-    .nav-content{
+
+    .nav-content {
         gap: 5px;
     }
-    .nav-card{
+
+    .nav-card {
         gap: 5px;
     }
-    .nav-card > div{
+
+    .nav-card>div {
         gap: 0px;
     }
-    #iconNavResponsif{
+
+    #iconNavResponsif {
         font-size: 25px;
     }
-    #textDarkmode{
+
+    #textDarkmode {
         font-size: 0px;
     }
-    .content{
+
+    .content {
         width: 100vw;
         padding: 0px 10px;
     }
-    .nav-login,.nav-regis{
+
+    .nav-login, .nav-regis {
         padding: 10px !important;
         font-size: 0.8rem;
         font-weight: 700;
     }
-    #drop span > i:nth-of-type(1){
+
+    #drop span>i:nth-of-type(1) {
         font-size: 30px;
     }
-    #dropDown3 a span i{
+
+    #dropDown3 a span i {
         font-size: 25px;
     }
+
     .nav-dropNotif>div {
         width: 300px !important;
         border: unset !important;
         background-color: var(--Blue);
     }
-    .content{
+
+    .content {
         width: 95vw;
     }
 }

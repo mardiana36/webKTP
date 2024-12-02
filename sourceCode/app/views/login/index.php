@@ -30,14 +30,14 @@
                     <form action="" class="formLogin">
                         <div class="divInputLogin">
                             <label for="emailLogin">Email / Username</label>
-                            <input type="email" id="emailLogin" required autocomplete="email">
+                            <input type="email" id="emailLogin" required >
                             <div class="divIconLogin">
                                 <i class='bx bxs-user'></i>
                             </div>
                         </div>
                         <div class="divInputLogin">
                             <label for="passwordLogin">Password</label>
-                            <input type="password" minlength="8" key="password" class="statusActive" id="passwordLogin" required autocomplete="current-password">
+                            <input type="password" minlength="8" key="password" class="statusActive" id="passwordLogin" required>
                             <div class="divIconLogin">
                                 <i class='bx bxs-lock iconPassword'></i>
                             </div>
@@ -71,7 +71,7 @@
                                 <a href=""><i class='bx bxl-facebook'></i>Facebook</a href="">
                             </div>
                             <div class="linkRegisterd">
-                                <p>Belum punya akun? Ayo <a href="">Registrasi</a></p>
+                                <p>Belum punya akun? Ayo <a href="index.php?action=regis">Registrasi</a></p>
                             </div>
                         </div>
                     </form>
@@ -79,6 +79,7 @@
             </div>
         </section>
     </main>
+    <?php require("app/views/components/footers.php") ?>
     <script src="app/views/assets/plugins/sweetalert/js/sweetalert.min.js"></script>
     <script src="app/views/assets/js/login.js"></script>
 </body>

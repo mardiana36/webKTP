@@ -31,7 +31,6 @@
 }
 
 .cardLogin {
-    padding-bottom: 20px;
     position: relative;
     border: 2px solid var(--white);
     border-radius: 10px;
@@ -158,8 +157,10 @@
     cursor: text;
     color: #00000081;
     transition: all 0.3s ease;
+    z-index: 2;
 }
 .divInputLogin input {
+    position: relative;
     display: block;
     width: 100%;
     height: 50px;
@@ -168,6 +169,7 @@
     outline: 2px dashed var(--Blue);
     border: none;
     outline-offset: -4px;
+    z-index: 1;
 }
 .divInputLogin input:focus{
     outline: none;

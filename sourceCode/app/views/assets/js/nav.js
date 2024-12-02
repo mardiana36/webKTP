@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function () {
     const dropDownNav = (container, icon) => {
         $(container).hover(function () {
           $(icon).toggleClass("bx-chevron-down bx-chevron-up");

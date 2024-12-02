@@ -1,0 +1,177 @@
+main{
+    position: relative;
+}
+.imgOutside{
+    position: absolute;
+    top:0%;
+    left: calc(20vw - 60px);
+    width: 60px;
+    height: 90%;
+    transform-origin: center;
+    object-fit: contain;
+}
+.imgOutside2{
+    position: absolute;
+    top:0%;
+    right: calc(20vw - 60px);
+    width: 60px;
+    height: 90%;
+    transform: rotateY(180deg);
+    transform-origin: center;
+    object-fit: contain;
+}
+.containerP1{
+    padding: 25px 0;
+    background: var(--Blue) url('../images/petaIndo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--white);
+    text-align: center;
+    min-height: 400px;
+}
+.content h1{
+    font-size: 32px;
+    font-weight: 900;
+}
+.content p{
+    padding: 0 20vw;
+}
+.containerP2{
+    margin-top: -260px;
+}
+.contentP2{
+    display: flex;
+    justify-content: center !important;
+    gap: 20px;
+    align-items: start;
+}
+.contentImgP2{
+    width: max-content;
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #0000001e;
+}
+.contentImgP2 img{
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+    object-fit: contain;
+}
+.contentFormP2{
+    width: 60%;
+    background-color: var(--white);
+    padding: 0px 20px 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0000001e;
+    position: relative;
+    z-index: 10;
+}
+.contentFormP2 h1{
+    font-weight: normal;
+    font-size: 20px;
+    background-color: var(--Blue);
+    text-align: center;
+    color: var(--white);
+    padding: 10px ;
+    margin:  20px -20px 10px;
+}
+.formP2{
+}
+.cardFormp2{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.cardFormp2> div{
+    width: calc(50% - 20px);
+}
+label{
+    display: block;
+    margin-top: 10px;
+}
+.divAlamat{
+    width: 100% !important;
+}
+input, select, textarea{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: 1px solid var(--Blue);
+    transition: all 0.5s;
+}
+input:focus, select:focus, textarea:focus{
+    scale: 1.05;
+    outline: none;
+    box-shadow: inset 0px 0px 5px var(--Blue), 2px 2px 3px 2px #0000003a;
+}
+textarea{
+    padding-top: 10px;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100px;
+}
+.cardDocx input{
+    padding: 10px;
+    color: var(--Blue);
+    
+}
+.btnP2{
+    margin-top: 20px;
+}
+.btnP2 > button:hover{
+    background-color: var(--Blue);
+    color: var(--white);
+}
+.btnP2 > button{
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    color: var(--Blue);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    outline: 2px solid var(--Blue);
+    background-color: #009BF41e;
+    transition: all 0.5s;
+}
+@media screen and (max-width: 1024px) {
+    .contentFormP2{
+        width: 90%;
+    }
+    .imgOutside{
+        left: calc(10vw - 60px);
+    }
+    .imgOutside2{
+        right: calc(10vw - 60px);
+
+    }
+}
+@media screen and (max-width: 700px) {
+    .contentFormP2{
+        width: 100%;
+    }
+    .imgOutside{
+        left: calc(10vw - 50px);
+    }
+    .imgOutside2{
+        right: calc(10vw - 50px);
+
+    }
+    .cardFormp2{
+        flex-direction: column;
+        gap: 0;
+    }
+    .cardFormp2 > div{
+        width: 100%;
+    }
+    .content p{
+        padding: 0;
+    }
+    .content h1{
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,282 @@
+.containerMain4 {
+    padding: 20px 0;
+    margin-top: 50px;
+    background-color: #478bcf19;
+}
+
+.cardMain4-1 {
+    text-align: center;
+    color: var(--Blue);
+}
+
+.cardMain4-1>h3 {
+    font-size: 2rem;
+}
+
+.contentMain4 {
+    transition: all 1s ease;
+    width: 70vw;
+}
+
+.cardMain4-1>p {
+    color: var(--darkModeColorB);
+    padding: 5px 15%;
+}
+.showHideDropList ul{
+    margin-left: 20px;
+}
+.cardMain4-2 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.containerDropList {
+    background-color: var(--white);
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    list-style-type: decimal;
+    outline: 2px solid var(--white);
+    border: 4px dashed var(--Blue);
+}
+
+.containerDropList>li {
+    position: relative;
+    margin-left: 40px;
+    font-weight: 900;
+    color: var(--Blue);
+}
+
+
+.btnShowHideDropList {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    color: var(--Blue);
+    padding: 20px;
+    cursor: pointer;
+}
+
+.btnShowHideDropList>i {
+    color: var(--Blue);
+}
+
+.showHideDropList {
+    color: var(--darkModeColorB);
+    padding: 0px 20px;
+    font-weight: normal;
+}
+
+.imgDropList {
+    width: 500px;
+    filter: drop-shadow(20px 10px 0px var(--white));
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
+.cardB2 > img{
+    width: 100%;
+    object-fit: contain;
+}
+.cardB2{
+    max-width: 300px;
+    min-width: 150px;
+    width: max-content;
+    text-align: center;
+}
+.contentB2{
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    flex-wrap: wrap;
+}
+.titleCB2{
+    text-align: center;
+    color: var(--Blue);
+}
+.containerB2{
+    margin-top: 25px;
+}
+.btnB1:hover{
+    outline: none;
+    background-color: var(--white);
+    color: var(--Blue);
+}
+.btnB1{
+    text-decoration: none;
+    color: var(--white);
+    outline: 2px solid var(--white);
+    border-radius: 5px;
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    padding: 5px 20px;
+    font-size: 20px;
+    margin-top: 20px;
+    transition: all 0.5s;
+}
+.ulB1 li i {
+    font-size: 35px;
+}
+.ulB1 li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 700;
+}
+.ulB1 li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.ulB1{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 20px;
+    list-style-type: none;
+    margin-top: 10px;
+}
+.cardImgB12 > p{
+    font-size: 20px;
+    width: 80%;
+}
+.cardImgB12 > h1{
+    font-size: 40px;
+    font-weight: 900;
+}
+.cardImgB1>img {
+    max-width: 25vw;
+    min-width: 300px;
+    max-height: 20vw;
+    min-height: 120px;
+    object-fit: contain;
+    background-color: #ffffff44;
+    padding: 20px 20px 0px 20px;
+    border: 2px solid var(--white);
+    box-shadow: -25px -25px 0px #0000003e;
+    border-radius: 10px;
+}
+
+.cardImgB1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cardImgB12 {
+    flex: 1;
+    color: var(--white);
+}
+
+.containB1 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: start;
+}
+
+.img-outside {
+    width: 100%;
+    object-fit: cover;
+}
+
+.containerB1 {
+    padding: 25px 0;
+    background: var(--Blue) url('../images/petaIndo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 1650px) {
+    
+    .divMain3-1>div:nth-child(1) {
+        min-height: 200px;
+    }
+    .cardSlide {
+        min-width: 90%;
+        height: unset;
+        padding: 20px;
+    }
+    
+    .cardSlide>img {
+        width: 150px;
+    }
+    
+    .cardSlide>div>p {
+        width: unset;
+    }
+    
+}
+@media screen and (max-width: 1136px) {
+    #type{
+        font-size: 30px;
+    }
+    .cardImgB12 > p{
+        font-size: 20px;
+        width: 80%;
+    }
+    .cardMain4-2{
+        align-items: end;
+        gap: 10px;
+    }
+    .imgDropList {
+        width: 300px;
+    }
+    .cardMain4-2 > div:nth-of-type(2){
+        max-width: max-content;
+    }
+    .contentMain4 {
+        width: 80vw;
+    }
+}
+@media screen and (max-width: 800px) {
+    .containB1{
+        justify-content: center;
+        flex-direction: column;
+    }
+    .cardImgB1 {
+        flex: none;
+        width: 100%;
+        padding: 0 10vw;
+    }
+    .cardImgB12 {
+        flex: none;
+        width: 100%;
+        padding: 0 10vw;
+    }
+    .cardImgB1>img {
+        min-width: 100%;
+        min-height: 200px;
+        object-fit: contain;
+    }
+}
+@media screen and (max-width: 600px) {
+    .cardMain4-2{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .imgDropList {
+        width: 300px;
+    }
+    .cardMain4-2 > div:nth-of-type(2){
+        max-width: max-content;
+    }
+    .contentMain4 {
+        width: 95vw;
+    }
+    .cardMain4-1 > p{
+        padding: 5px;
+    }
+
+    
+}
