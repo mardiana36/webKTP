@@ -5,7 +5,11 @@ include "app/controllers/kamarController.php";
 include "app/controllers/pembayaranController.php";
 include "app/controllers/pemesananController.php";
 include "app/controllers/dashboardController.php";
+include "app/controllers/berandaController.php";
+include "app/controllers/pengajuanController.php";
+$berandaController = new berandaController();
 $userController = new userController();
+$pengajuanController = new pengajuanController();
 $tamuController = new tamuController();
 $kamarController = new kamarController();
 $pembayaranController = new pembayaranController();
@@ -33,6 +37,14 @@ if (isset($_SESSION['role']) && $_SESSION['role'] != "admin") {
     }
 }
 switch ($action) {
+    case "pengajuan":
+        $_SESSION['page'] = "Pengajuan";
+        $pengajuanController->pengajuan();
+        break;
+    case "home": 
+        $_SESSION['page'] = "Beranda";
+        $berandaController->beranda();
+        break;
     case "regis":
         $_SESSION['page'] = "Registrasi";
         $userController->regis();

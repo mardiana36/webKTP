@@ -1,18 +1,8 @@
-<!--**********************************
-            Footer start
-***********************************-->
-<div class="footer">
-    <div class="copyright">
-        <p>Copyright &copy; Mardiana & Triana Designed <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2024</p>
-    </div>
-</div>
-<!--**********************************
-            Footer end
-***********************************-->
-</div>
-<!--**********************************
-        Main wrapper end
-    ***********************************-->
+<footer>
+        <div class="cardFooter-2">
+            <p><i class='bx bx-copyright'></i> 2024 E-KTP - Dinas Kependudukan dan Pencatatan Sipil</p>
+        </div>
+    </footer>
 <?php
 include "app/views/components/scripts.php"
 

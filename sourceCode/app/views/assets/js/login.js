@@ -4,18 +4,18 @@ $(document).ready(function () {
     const setupInput = (inputSelector, cIconSelector) => {
       let input = $(inputSelector);
       let icon = input.closest("div").find(cIconSelector + " i");
-
-      icon.on("click", function () {
-        input.focus();
-        if (input.attr("key") == "password") {
+      if (input.attr("key") == "password") {
+        icon.off("click").on("click", function () {
+          console.log(input);
+          input.focus();
           if ($(input).attr("type") == "password") {
             $(input).attr("type", "text");
           } else {
             $(input).attr("type", "password");
           }
           $(this).toggleClass("bxs-lock bxs-lock-open");
-        }
-      });
+        });
+      }
 
       input.on("focus", function () {
         let getLabel = $(`label[for="${input.attr("id")}"]`);
@@ -57,7 +57,6 @@ $(document).ready(function () {
       "#userName",
       "#emailLogin",
       "#passwordLogin",
-      "#token",
     ],
     cIcon: ".divIconLogin",
   });
