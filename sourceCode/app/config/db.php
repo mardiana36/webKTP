@@ -1,7 +1,7 @@
 <?php
 class Database{
     private $host = "localhost";
-    private $db_name = "booking";
+    private $db_name = "ktp";
     private $host_name = "root";
     private $password = "";
     private $conn;

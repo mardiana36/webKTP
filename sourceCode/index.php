@@ -7,6 +7,8 @@ include "app/controllers/pemesananController.php";
 include "app/controllers/dashboardController.php";
 include "app/controllers/berandaController.php";
 include "app/controllers/pengajuanController.php";
+include "app/controllers/adminPengajuanController.php";
+include "app/controllers/adminPembuatanController.php";
 $berandaController = new berandaController();
 $userController = new userController();
 $pengajuanController = new pengajuanController();
@@ -14,7 +16,10 @@ $tamuController = new tamuController();
 $kamarController = new kamarController();
 $pembayaranController = new pembayaranController();
 $pemesananController = new pemesananController();
+$adminPengajuanController = new adminPengajuanController();
+$adminPembuatanController = new adminPembuatanController();
 $dashboardController = new dashboardController();
+
 session_start();
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
@@ -82,6 +87,20 @@ switch ($action) {
         require "app/views/components/headers.php";
         require "app/views/components/navbars.php";
         $pemesananController->index();
+        require "app/views/components/footers.php";
+        break;
+    case "radminPengajuan":
+        $_SESSION['page'] = "Admin Pengajuan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPengajuanController->index();
+        require "app/views/components/footers.php";
+        break;
+    case "vadminPengajuan":
+        $_SESSION['page'] = "Edit Pengajuan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPengajuanController->view($id);
         require "app/views/components/footers.php";
         break;
     case "cTamu":
@@ -152,6 +171,19 @@ switch ($action) {
         require "app/views/components/headers.php";
         require "app/views/components/navbars.php";
         $pemesananController->update($id, $tamuController->get(), $kamarController->get());
+        require "app/views/components/footers.php";
+        break;
+    case "uadminPengajuan":
+        $_SESSION['page'] = "Edit Pengajuan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPengajuanController->update($id);
+        require "app/views/components/footers.php";
+        break;
+    case "aPengajuan":
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPengajuanController->approve($id);
         require "app/views/components/footers.php";
         break;
     case "dashboard":
