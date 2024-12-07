@@ -7,13 +7,13 @@
                 </li>
               <div id="divNavResponsif">
                 <li class="showHideNav">
-                    <a href="index.php?action=">Pengajuan</a>
+                    <a href="index.php?action=pengajuan">Pengajuan</a>
                 </li>
                 <li class="showHideNav">
-                    <a href="index.php?action=">Pembuatan</a>
+                    <a href="index.php?action=pembuatan">Pembuatan</a>
                 </li>
                 <li class="showHideNav">
-                    <a href="index.php?action=">Hasil</a>
+                    <a href="index.php?action=hasil">Hasil</a>
                 </li>
               </div>
             </ul>

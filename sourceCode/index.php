@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include "app/controllers/userController.php";
 include "app/controllers/tamuController.php";
 include "app/controllers/kamarController.php";
@@ -7,15 +10,18 @@ include "app/controllers/pemesananController.php";
 include "app/controllers/dashboardController.php";
 include "app/controllers/berandaController.php";
 include "app/controllers/pengajuanController.php";
+include "app/controllers/pembuatanController.php";
+include "app/controllers/hasilController.php";
 $berandaController = new berandaController();
 $userController = new userController();
-$pengajuanController = new pengajuanController();
 $tamuController = new tamuController();
 $kamarController = new kamarController();
 $pembayaranController = new pembayaranController();
 $pemesananController = new pemesananController();
 $dashboardController = new dashboardController();
-session_start();
+$pengajuanController = new pengajuanController();
+$pembuatanController = new pembuatanController();
+$hasilController = new hasilController();
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 $id = isset($_GET['id']) ? $_GET['id'] : '';
@@ -37,13 +43,21 @@ if (isset($_SESSION['role']) && $_SESSION['role'] != "admin") {
     }
 }
 switch ($action) {
+    case "hasil":
+        $_SESSION['page'] = "Hasil";
+        $hasilController->hasil();
+        break;
+    case "pembuatan":
+        $_SESSION['page'] = "Pembuatan";
+        $pembuatanController->pembuatan();
+        break;
     case "pengajuan":
         $_SESSION['page'] = "Pengajuan";
         $pengajuanController->pengajuan();
         break;
-    case "home": 
-        $_SESSION['page'] = "Beranda";
-        $berandaController->beranda();
+    case "login":
+        $_SESSION['page'] = "Login";
+        $userController->login();
         break;
     case "regis":
         $_SESSION['page'] = "Registrasi";
@@ -201,8 +215,8 @@ switch ($action) {
         $userController->logout();
         break;
     default:
-        $_SESSION['page'] = "Login";
-        $userController->login();
+        $_SESSION['page'] = "Beranda";
+        $berandaController->beranda();
         break;
 }
 

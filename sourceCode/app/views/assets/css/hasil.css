@@ -1,0 +1,281 @@
+@font-face {
+    font-family: 'OCR-A';
+    src: url('path/to/ocr-a-font.woff2') format('woff2'),
+         url('path/to/ocr-a-font.woff') format('woff');
+  }
+.containerH1{
+    padding: 40px 0;
+    background: var(--Blue) url('../images/petaIndo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--white);
+    text-align: center;
+    min-height: max-content;
+    min-height: 100vh;
+}
+.contentH1{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+}
+.cardH1{
+    color: var(--black);
+}
+.cardH1:nth-child(1){
+    max-width: max-content;
+}
+.cardH1:nth-child(1) > div:nth-child(1){
+    margin-bottom: 20px;
+}
+.cardH1:nth-child(1) > div>div{
+    overflow-x: auto;
+}
+ .containerKTPSc::-webkit-scrollbar{
+    height: 5px !important;
+}
+.cardH1:nth-child(1) > div{
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+}
+.cardH1 > div > h3{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.contentH1 > div{
+    width: 50%;
+}
+.containerKTP{
+    width: 486px;
+    height: 306px;
+    background: url('../images/bgKTP.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+    align-items: stretch;
+}
+.titleKTP > h3{
+    text-align: center;
+    font-size: 16px !important;
+    font-weight: 600;
+}
+.contentKTP{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.cardKTP{
+    flex: 1;
+    height: max-content;
+}
+.tabelKTP tr td h3{
+    font-size: 18px;
+    padding: 5px 0;
+    letter-spacing: 3px;
+    text-wrap: nowrap;
+    font-family: monospace;
+    color: #000000;
+}
+.tabelKTP tr td p{
+    font-size: 10px;
+    text-align: left;
+    text-wrap: nowrap;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+}
+.tabelKTP tr td:nth-child(2) p, .tabelKTP tr td:nth-child(3) span{
+    text-transform: uppercase !important;
+}
+.tabelKTP tr td:nth-child(3) {
+    display: block;
+    margin-left: -70px;
+}
+.tdAlamat{
+    padding-left: 20px;
+}
+.cardKTP:nth-child(2){
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cardKTP>p{
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+.fotoKTP{
+    width: max-content;
+}
+.fotoKTP img{
+    display: block;
+    width: 120px;
+    object-fit: contain;
+    box-shadow: 0px 0px 10px 5px var(--white);
+    background-clip: padding-box;
+}
+.imgTTD{
+position: relative;
+
+}
+#ktp{
+    width: max-content;
+    height: max-content;
+}
+.imgTTD img{
+    top: -10px;
+    left: -60px;
+    width: 300px; 
+    height: auto; 
+    position: absolute;
+}
+.ktpBelakang{
+    margin-top: 20px;
+}
+.ktpBelakang img{
+    width: 486px;
+    height: 306px;
+    border-radius: 20px;
+}
+.containerKTPSc{
+    max-height: 326px;
+    overflow-y: hidden;
+}
+.containerUnduh{
+    margin-top: 0px;
+}
+.containerUnduh > div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+    overflow: unset !important;
+}
+.containerUnduh > div button{
+    border: none;
+    background-color: var(--Blue);
+    color: var(--white);
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 5px;
+    transition: all 0.5s;
+    cursor: pointer;
+    flex: 1;
+}
+.containerUnduh > div button:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 2px 4px #0247a2, inset 0px -1px 2px 1px var(--white);
+}
+.containerUnduh > div button > i{
+    font-size: 20px;
+}
+.alert{
+    margin: 5px !important;
+    display: flex;
+    align-items: center;
+    color: red;
+    gap: 0 !important;
+    font-size: 12px;
+}
+.alert > i{
+    font-size: 20px;
+}
+.cardH1:nth-child(2){
+    background-color: var(--white);
+    border-radius: 10px;
+    width: max-content;
+    padding: 40px;
+}
+.divDetailAlert{
+    padding: 10px 0;
+    border-top: 2px solid var(--Blue);
+    margin-top: 10px;
+}
+.divDetailAlert > h3{
+    font-size: 16px;
+}
+.divDetailAlert > ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+.divDetailAlert >ul li{
+    display: flex;
+    align-items: center;
+    justify-content: left !important;
+    text-align: left;
+}
+.divDetailAlert> ul li i {
+    font-size: 30px;
+    color: var(--Blue);
+}
+.divFormAlert{
+    padding: 10px 0;
+    border-top: 2px solid var(--Blue);
+    margin-top: 10px;
+    text-align: left;
+}
+.divFormAlert form label{
+    display: block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.divFormAlert form textarea{
+    min-width: 100%;
+    max-width: max-content;
+    min-height: 100px;
+    display: block;
+    padding: 10px;
+    border: 1px solid var(--Blue);
+    border-radius: 10px;
+}
+.divFormAlert > form > div{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.btnSend{
+    display: inline-flex;
+    gap: 10px;
+    font-size: 18px;
+    background-color:  var(--Blue);
+    color: var(--white);
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.btnSend:hover{
+    scale: 1.1;
+}
+.btnSend > i {
+    transform: rotate(-50deg)
+}
+@media screen and (max-width: 1024px) {
+    .contentH1{
+        flex-direction: column;
+        align-items: center;
+    }
+    .cardH1{
+        width: 100% !important;
+    }
+    .containerUnduh > div{
+        flex-wrap: wrap;
+    }
+}
