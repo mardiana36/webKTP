@@ -1,9 +1,7 @@
 <?php
 require_once 'app/config/db.php';
-require_once 'app/models/kamar.php';
-require_once 'app/models/pembayaran.php';
-require_once 'app/models/pemesanan.php';
-require_once 'app/models/tamu.php';
+require_once 'app/models/adminPembuatan.php';
+require_once 'app/models/adminPengajuan.php';
 
 class dashboardController {
     private $db;
@@ -14,41 +12,38 @@ class dashboardController {
     }
 
         public function getDashboardData() {
-        $query = "SELECT t.id,t.nama,pm.kodeReservasi,pm.tglCheckin,pm.tglCheckout, pm.status, pb.status as pembayaran_status FROM tamu t INNER JOIN pemesanan pm INNER JOIN pembayaran pb WHERE t.id = pm.tamu_id AND pm.id = pb.pemesanan_id;";
+        $query = "SELECT
+        p.id AS pengajuan_id,  
+        pb.id AS pembuatan_id, 
+        p.nama,
+        COALESCE(pb.tanggal_pembuatan, p.tanggal_pengajuan) AS tanggal,
+        CASE
+            WHEN p.status = 'PJA' AND (pb.status = 'PB' OR pb.status = 'PBC') THEN pb.status
+            WHEN p.status = 'PJA' AND pb.status = 'PBA' THEN NULL
+            ELSE COALESCE(p.status, pb.status)
+        END AS status
+        FROM
+        pengajuan p
+        LEFT JOIN
+        pembuatan pb ON p.id = pb.id_pengajuan
+        WHERE
+        p.status IN ('PJ', 'PJC') OR pb.status IN ('PB', 'PBC');";
+
+        
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $queryGuest = "SELECT COUNT(*) AS total_guest FROM tamu";
-        $stmtGuest = $this->db->prepare($queryGuest);
-        $stmtGuest->execute();
-        $totalGuest = $stmtGuest->fetch(PDO::FETCH_ASSOC)['total_guest'];
+        $queryPengajuan = "SELECT COUNT(*) AS total_pengajuan FROM pengajuan WHERE status='PJ' OR status='PJC'";
+        $stmtPengajuan = $this->db->prepare($queryPengajuan);
+        $stmtPengajuan->execute();
+        $totalPengajuan = $stmtPengajuan->fetch(PDO::FETCH_ASSOC)['total_pengajuan'];
 
-        $queryRoom = "SELECT COUNT(*) AS total_room FROM infokamar";
-        $stmtRoom = $this->db->prepare($queryRoom);
-        $stmtRoom->execute();
-        $totalRoom = $stmtRoom->fetch(PDO::FETCH_ASSOC)['total_room'];
-
-        $queryProfit = "
-            SELECT 
-                SUM(p.harga) AS total_paid 
-            FROM 
-                pemesanan p
-            LEFT JOIN 
-                pembayaran pb ON p.id = pb.pemesanan_id
-            WHERE 
-                p.status = 'con' AND
-                pb.status = 'PA'
-        ";
-        $stmtProfit = $this->db->prepare($queryProfit);
-        $stmtProfit->execute();
-        $totalProfit = $stmtProfit->fetch(PDO::FETCH_ASSOC)['total_paid'];
-
-        $queryBooking = "SELECT COUNT(*) AS total_booking FROM pemesanan";
-        $stmtBooking = $this->db->prepare($queryBooking);
-        $stmtBooking->execute();
-        $totalBooking = $stmtBooking->fetch(PDO::FETCH_ASSOC)['total_booking'];
+        $queryPembuatan = "SELECT COUNT(*) AS total_pembuatan FROM pembuatan WHERE status='PB' OR status='PBC'";
+        $stmtPembuatan = $this->db->prepare($queryPembuatan);
+        $stmtPembuatan->execute();
+        $totalPembuatan = $stmtPembuatan->fetch(PDO::FETCH_ASSOC)['total_pembuatan'];
 
         setlocale(LC_TIME, 'id_ID');
         $tanggal_hari_ini = date('d F Y');
