@@ -1,0 +1,223 @@
+p {
+    padding: 0 !important;
+}
+.divTitle{
+    margin-bottom: 20px;
+}
+
+#preview-img {
+    max-width: 150px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+#save {
+    position: absolute;
+    top: 5px;
+    right: 35px;
+    border: none;
+    background-color: var(--Blue);
+    padding: 5px;
+    color: var(--white);
+    border-radius: 10px 10px 10px 0;
+    cursor: pointer;
+}
+
+#ttdInput {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: -1;
+}
+
+.containerPB1 {
+    padding: 40px 0;
+    background: var(--Blue) url('../images/petaIndo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--white);
+    text-align: center;
+    min-height: max-content;
+
+}
+
+input:focus {
+    box-shadow: none;
+    scale: unset;
+}
+
+.contentPB1 {
+    display: flex;
+    gap: 20px;
+}
+
+.formPB1 {
+    color: var(--black);
+}
+
+.cardPB11 {
+    background-color: var(--white);
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#drop-area {
+    cursor: pointer;
+    border: 2px dashed var(--Blue);
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: left;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#drop-area>p {
+    padding: 0;
+    text-align: center;
+    opacity: 0.5;
+}
+
+#file-input {
+    border: none;
+    padding: 0;
+    height: unset;
+}
+
+.formPB1 label {
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.formP2 label {
+    text-align: left;
+    color: var(--black);
+}
+
+.cardPB11 h3 {
+    color: var(--black);
+}
+
+#canvas {
+    width: 100%;
+    height: 150px;
+    border: 1px solid var(--Blue);
+    border-radius: 10px;
+}
+
+.labelHapus {
+    position: absolute;
+    top: -20px;
+    font-size: 12px;
+    font-weight: 900;
+    right: 0;
+    padding: unset !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+    color: rgb(218, 5, 5);
+}
+
+#clear {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    padding: unset;
+    background-color: unset;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#clear:hover {
+    scale: 1.1;
+}
+
+#clear:hover+.labelHapus {
+    opacity: 1;
+    visibility: visible;
+}
+
+#clear>i {
+    font-size: 25px;
+    color: rgb(218, 5, 5);
+}
+
+.containerCanvas {
+    position: relative;
+    width: 100%;
+    height: max-content;
+}
+
+.btnNext {
+    background-color: var(--Blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.btnNext:hover {
+    background-color: #006dac;
+}
+
+.div3Jari {
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    z-index: 10;
+    background-color: #00000038;
+}
+
+.div3Jari>div {
+    top: 10%;
+    left: 20%;
+    background-color: var(--Blue);
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: var(--white);
+}
+
+.btn3Jari {
+    background-color: var(--Blue);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--white);
+    min-width: 80%;
+}
+
+.cardFormp2 p {
+    color: rgb(218, 5, 5);
+    text-align: left;
+    font-size: 11px !important;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .contentPB1 {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .cardPB11 {
+        width: 100%;
+    }
+}

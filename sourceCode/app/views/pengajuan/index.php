@@ -1,3 +1,11 @@
+<?php
+if (isset($_SESSION['pengajuan'])) {
+    $data = $_SESSION['pengajuan'];
+} else {
+    $data = null;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,106 +24,127 @@
 </head>
 
 <body>
-<?php
+    <?php
     require('app/views/components/navbarUser.php')
     ?>
     <main>
         <img class="imgOutside" src="app/views/assets/images/Frame34.png" alt="">
         <img class="imgOutside2" src="app/views/assets/images/Frame34.png" alt="">
         <Section class="container containerP1">
-            <div class="content">
-                <h1>Form Pengajuan KTP</h1>
-                <p>Silahkan isi form ini dengan teliti dan pastikan semua data yang diisi sudah benar untuk menghindari
-                    kesalahan proses pengajuan.</p>
+            <div class="content contentP1">
+                <h1><?= isset($data) ? "Status Pengajuan KTP" : "Form Pengajuan KTP" ?></h1>
+                <div class="statusPengajuan" style="<?= isset($data) ? 'display: flex;' : '' ?>">
+                    <div>
+                        <p class="ps">Pengajuan Diterima</p>
+                        <span>Data Anda sudah masuk dalam sistem.</span>
+                    </div>
+                    <div>
+                        <p class="ps">Proses Verifikasi</p>
+                        <span>Dokumen sedang diperiksa oleh petugas Dukcapil.</span>
+                    </div>
+                    <div>
+                        <p class="ps">Berhasil Diajukan</p>
+                        <span>Selamat KTP Anda Siap untuk di buat dengan cara menuju ke menu Pembuatan.</span>
+                    </div>
+                </div>
+                <p><?= isset($data) ? "Anda Tidak Bisa lagi melakukan pengeditan terhadap Formulir ini karena data anda sudah berhasil terkirim. Silhakan Pantau status dari Pengajuan data KTP anda." : "Silahkan isi Formulir ini dengan teliti dan pastikan semua data yang diisi sudah benar untuk menghindari kesalahan proses pengajuan." ?></p>
             </div>
         </Section>
-        <Section class="container containerP2">
+        <Section class="container containerP2" style="<?= isset($data) ? 'margin-top: -200px; filter:brightness(80%);' : '' ?>">
             <div class="content contentP2">
-                
+
                 <div class="contentFormP2">
                     <h1>Input Data Anda</h1>
-                    <form action="" class="formP2">
+                    <form action="index.php?action=pengajuan" method="post" enctype="multipart/form-data" class="formP2">
                         <div class="cardFormp2">
                             <div>
                                 <label for="nama">Nama Lengkap</label>
-                                <input type="text" id="nama" name="nama" required>
+                                <input type="text" id="nama" name="nama" value="<?= isset($data) ? $data['nama'] : ''; ?>" <?= isset($data) ? 'readonly' : ''; ?> required placeholder="Nama lengkap anda sesuai KK">
                             </div>
                             <div>
                                 <label for="nik">NIK</label>
-                                <input type="text" id="nik" name="nik" required>
+                                <input type="text" id="nik" name="nik" value="<?= isset($data) ? $data['nik'] : ''; ?>" <?= isset($data) ? 'readonly' : ''; ?> required placeholder="NIK anda yang ada di KK">
                             </div>
                         </div>
                         <div class="cardFormp2">
                             <div>
                                 <label for="tmpLahir">Tempat Lahir</label>
-                                <input type="text" id="tmpLahir" name="tmpLahir" required>
+                                <input type="text" value="<?= isset($data) ? $data['tmpLahir'] : ''; ?>" <?= isset($data) ? 'readonly' : ''; ?> id="tmpLahir" name="tmpLahir" required placeholder="Tempat Lahir anda">
                             </div>
                             <div>
-                                <label for="tglLahir">Tempat Lahir</label>
-                                <input type="date" id="tglLahir" name="tglLahir" required>
+                                <label for="tglLahir">Tanggal Lahir</label>
+                                <input type="date" id="tglLahir" name="tglLahir" required value="<?= isset($data) ? $data['tglLahir'] : ''; ?>" <?= isset($data) ? 'readonly' : ''; ?>>
                             </div>
-    
+
                         </div>
                         <div class="cardFormp2">
                             <div class="divAlamat">
-                                <label for="alamat">Alamat</label>
-                                <textarea name="alamat" id="alamat"></textarea>
+                                <div class="itemAlamat">
+                                    <label for="alamat">Alamat</label>
+                                    <i class='bx bx-question-mark'></i>
+                                    <p class="helpAlamat">Format alamat harus dipisahkan dengan tanda koma, seperti: Nama Banjar, Nama Desa, Nama Kecamatan, Nama Kabupaten.</p>
+                                </div>
+                                <textarea name="alamat" id="alamat" <?= isset($data) ? 'readonly' : ''; ?> placeholder="Contoh: BR.Tukad, Bedulu, Tegallalang, Gianyar"> <?= isset($data) ? $data['alamat'] : ''; ?></textarea>
                             </div>
                         </div>
                         <div class="cardFormp2">
                             <div>
                                 <label for="jk">Jenis Kelamin</label>
-                                <select name="jk" id="jk">
-                                    <option value="0">Perempuan</option>
-                                    <option value="1">Laki - Laki</option>
+                                <select name="jk" id="jk" <?= isset($data) ? 'disabled' : ''; ?>>
+                                    <option disabled selected hidden>Pilih</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="P">Perempuan</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="L">Laki - Laki</option>
                                 </select>
                             </div>
                             <div>
                                 <label for="golDarah">Golongan darah</label>
-                                <select name="golDarah" id="golDarah">
-                                    <option value="1">A</option>
-                                    <option value="2">A+</option>
-                                    <option value="3">A-</option>
-                                    <option value="4">B</option>
-                                    <option value="5">B+</option>
-                                    <option value="6">B-</option>
-                                    <option value="7">AB</option>
-                                    <option value="8">AB+</option>
-                                    <option value="9">AB-</option>
-                                    <option value="10">O</option>
-                                    <option value="11">O+</option>
-                                    <option value="12">O-</option>
+                                <select name="golDarah" <?= isset($data) ? 'disabled' : ''; ?> id="golDarah">
+                                    <option disabled selected hidden>Pilih</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="A">A</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="A+">A+</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="A-">A-</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="B">B</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="B+">B+</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="B-">B-</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="AB">AB</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="AB+">AB+</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="AB-">AB-</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="O">O</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="O+">O+</option>
+                                    <option <?= isset($data) ? 'selected' : ''; ?> value="O-">O-</option>
                                 </select>
                             </div>
                         </div>
                         <div class="cardFormp2">
                             <div>
                                 <label for="agama">Agama</label>
-                                <select name="agama" id="agama">
-                                    <option value="A1">Hindu</option>
-                                    <option value="A2">Islam</option>
-                                    <option value="A3">Kristen Protestan</option>
-                                    <option value="A4">Kristen Katolik</option>
-                                    <option value="A5">Buddha</option>
-                                    <option value="A6">Konghucu</option>
+                                <select name="agama" id="agama" <?= isset($data) ? 'disabled' : ''; ?>>
+                                    <option disabled selected hidden>Pilih</option>
+                                    <option value="A1" <?= isset($data) ? 'selected' : ''; ?>>Hindu</option>
+                                    <option value="A2" <?= isset($data) ? 'selected' : ''; ?>>Islam</option>
+                                    <option value="A3" <?= isset($data) ? 'selected' : ''; ?>>Kristen Protestan</option>
+                                    <option value="A4" <?= isset($data) ? 'selected' : ''; ?>>Kristen Katolik</option>
+                                    <option value="A5" <?= isset($data) ? 'selected' : ''; ?>>Buddha</option>
+                                    <option value="A6" <?= isset($data) ? 'selected' : ''; ?>>Konghucu</option>
                                 </select>
                             </div>
                             <div>
                                 <label for="statusPerkawinan">Status Perkawinan</label>
-                                <select name="statusPerkawinan" id="statusPerkawinan" required>
-                                    <option value="0">Belum Kawin</option>
-                                    <option value="1">Sudah Kawin</option>
+                                <select name="statusPerkawinan" id="statusPerkawinan" required <?= isset($data) ? 'disabled' : ''; ?>>
+                                    <option disabled selected hidden>Pilih</option>
+                                    <option value="B" <?= isset($data) ? 'selected' : ''; ?>>Belum Kawin</option>
+                                    <option value="S" <?= isset($data) ? 'selected' : ''; ?>>Sudah Kawin</option>
                                 </select>
                             </div>
                         </div>
                         <div class="cardFormp2">
                             <div>
                                 <label for="pekerjaan">Pekerjaan</label>
-                                <input type="text" name="pekerjaan" id="pekerjaan" required>
+                                <input type="text" name="pekerjaan" value="<?= isset($data) ? $data['pekerjaan'] : ''; ?>" <?= isset($data) ? 'readonly' : ''; ?> id="pekerjaan" required placeholder="Masukan Pekerjaan anda saat ini">
                             </div>
                             <div>
                                 <label for="negara">Kewarganegaraan</label>
-                                <input type="text" name="negara" id="negara" required>
+                                <input type="text" name="negara" id="negara" value="<?= isset($data) ? $data['negara'] : ''; ?>" <?= isset($data) ? 'readonly' : ''; ?> required placeholder="masukan kewarganegaraan anda">
                             </div>
                         </div>
                         <div class="cardDocx">
@@ -123,15 +152,19 @@
                             <div>
                                 <div class="divDocxP2">
                                     <label for="pathKK">Foto KK(Kartu Keluarga)</label>
-                                    <input type="file" id="pathKK" name="pathKK" required>
+                                    <input type="file" id="pathKK" <?= isset($data) ? 'disabled' : ''; ?> name="pathKK" required>
+                                    <p><?= isset($data) ? $_SESSION["fileLPengajuan"]['pathKK'] : ''; ?></p>
                                 </div>
                                 <div class="divDocxP2">
-                                    <label for="pathKK">Foto Surat Pengantar</label>
-                                    <input type="file" id="pathKK" name="pathKK" required>
+                                    <label for="pathRekumendasi">Foto Surat Pengantar</label>
+                                    <input type="file" id="pathRekumendasi" name="pathRekumendasi" required <?= isset($data) ? 'disabled' : ''; ?>>
+                                    <p><?= isset($data) ? $_SESSION["fileLPengajuan"]['pathRekumendasi'] : ''; ?></p>
                                 </div>
                             </div>
                             <div class="btnP2">
-                                <button  type="submit">Ajukan</button>
+                                <?php if (!isset($data)): ?>
+                                    <button type="submit">Ajukan</button>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </form>
@@ -140,6 +173,7 @@
         </Section>
     </main>
     <?php require("app/views/components/footers.php") ?>
+    <script src="app/views/assets/js/status.js"></script>
 </body>
 
 </html>
