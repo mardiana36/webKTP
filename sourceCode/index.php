@@ -12,16 +12,21 @@ include "app/controllers/berandaController.php";
 include "app/controllers/pengajuanController.php";
 include "app/controllers/pembuatanController.php";
 include "app/controllers/hasilController.php";
+include "app/controllers/adminPengajuanController.php";
+include "app/controllers/adminPembuatanController.php";
 $berandaController = new berandaController();
 $userController = new userController();
 $tamuController = new tamuController();
 $kamarController = new kamarController();
 $pembayaranController = new pembayaranController();
 $pemesananController = new pemesananController();
+$adminPengajuanController = new adminPengajuanController();
+$adminPembuatanController = new adminPembuatanController();
 $dashboardController = new dashboardController();
 $pengajuanController = new pengajuanController();
 $pembuatanController = new pembuatanController();
 $hasilController = new hasilController();
+
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 $id = isset($_GET['id']) ? $_GET['id'] : '';
@@ -96,6 +101,60 @@ switch ($action) {
         require "app/views/components/headers.php";
         require "app/views/components/navbars.php";
         $pemesananController->index();
+        require "app/views/components/footers.php";
+        break;
+    case "radminPengajuan":
+        $_SESSION['page'] = "Admin Pengajuan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPengajuanController->index();
+        require "app/views/components/footers.php";
+        break;
+    case "vadminPengajuan":
+        $_SESSION['page'] = "Edit Pengajuan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPengajuanController->view($id);
+        require "app/views/components/footers.php";
+        break;
+    case "radminPembuatan":
+        $_SESSION['page'] = "Admin Pembuatan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPembuatanController->index();
+        require "app/views/components/footers.php";
+        break;
+    case "vadminPembuatan":
+        $_SESSION['page'] = "View Pembuatan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPembuatanController->view($id);
+        require "app/views/components/footers.php";
+        break;
+    case "uadminPengajuan":
+        $_SESSION['page'] = "Edit Pengajuan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPengajuanController->update($id);
+        require "app/views/components/footers.php";
+        break;
+    case "uadminPembuatan":
+        $_SESSION['page'] = "Edit Pembuatan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPembuatanController->update($id);
+        require "app/views/components/footers.php";
+        break;
+    case "aPengajuan":
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPengajuanController->approve($id);
+        require "app/views/components/footers.php";
+        break;
+    case "aPembuatan":
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminPembuatanController->approve($id);
         require "app/views/components/footers.php";
         break;
     case "cTamu":
