@@ -123,7 +123,7 @@ class adminPengajuan
 
     public function approvePengajuan($id){
     $query = "UPDATE " . $this->tableName . " SET status=:status WHERE id=:id";
-    $status = "PB";
+    $status = "PJA";
 
     $stmt = $this->conn->prepare($query); 
 

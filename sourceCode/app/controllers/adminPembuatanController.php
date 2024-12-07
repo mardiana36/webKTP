@@ -36,7 +36,7 @@ class adminPembuatanController
 
 
             if ($this->adminPembuatan->updatePembuatan()) {
-                echo "<script>window.location.href = 'index.php?action=rUser';</script>";
+                echo "<script>window.location.href = 'index.php?action=radminPembuatan';</script>";
             } else {
                 echo "<script>alert('Terjadi kesalahan pada saat update!');</script>";
             }
@@ -51,19 +51,36 @@ class adminPembuatanController
         }
     }
 
-    public function approve($id){
-        if ($this->adminPembuatan->approvePembuatan($id)) {
-            echo "<script>window.location.href = 'index.php?action=rUser';</script>"; 
+        public function view($id){
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $pathFoto = $_POST['pathFoto'];
+            $pathTtd = $_POST['pathTtd'];
+
+            $this->adminPembuatan->id = $id;
+            $this->adminPembuatan->pathFoto = $pathFoto;
+            $this->adminPembuatan->pathTtd = $pathTtd;
+
+            if ($this->adminPembuatan->viewPembuatan()) {
+                echo "<script>window.location.href = 'index.php?action=radminPembuatan';</script>";
+            } else {
+                echo "<script>alert('Terjadi kesalahan pada saat update!');</script>";
+            }
         } else {
-            echo "<script>window.location.href = 'index.php?action=rUser';</script>"; 
+            $stmt = $this->adminPembuatan->showPembuatan($id);
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($data) {
+                include 'app/views/adminPembuatan/view.php';
+            } else {
+                echo "User not found.";
+            }
         }
     }
 
-    public function tolak($id){
-        if ($this->adminPembuatan->tolakPembuatan($id)) {
-            echo "<script>window.location.href = 'index.php?action=rUser';</script>"; 
+    public function approve($id){
+        if ($this->adminPembuatan->approvePembuatan($id)) {
+            echo "<script>window.location.href = 'index.php?action=radminPembuatan';</script>"; 
         } else {
-            echo "<script>window.location.href = 'index.php?action=rUser';</script>"; 
+            echo "<script>alert('Terjadi kesalahan saat approve pengajuan!');</script>";  
         }
     }
 

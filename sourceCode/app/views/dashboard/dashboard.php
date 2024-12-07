@@ -79,9 +79,19 @@
                                   ?>
                               </td>
                               <td>
-                              <button class="detail-button">
-                              <i class="fas fa-eye"></i> Detail
-                              </button>
+                                  <a href="<?php
+                                      if (isset($row['status'])) {
+                                          if ($row['status'] == 'PJ' || $row['status'] == 'PJC') {
+                                              echo "index.php?action=uadminPengajuan&id=" . $row['pengajuan_id']; 
+                                          } elseif ($row['status'] == 'PB' || $row['status'] == 'PBC') {
+                                              echo "index.php?action=vadminPembuatan&id=" . $row['pembuatan_id'];  
+                                          }
+                                      }
+                                  ?>">
+                                      <button class="detail-button">
+                                          <i class="fas fa-eye"></i> Detail
+                                      </button>
+                                  </a>
                             </td>
                           </tr>
                       <?php endforeach; ?>

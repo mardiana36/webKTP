@@ -65,11 +65,12 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="agama" name="agama" required>
                                                     <option value="" hidden>Pilih...</option>
-                                                    <option value="HI" <?= $data["agama"]=="HI"? "selected": '';?>>Hindu</option>
-                                                    <option value="IS" <?= $data["agama"]=="IS"? "selected": '';?>>Islam</option>
-                                                    <option value="BD" <?= $data["agama"]=="BD"? "selected": '';?>>Budha</option>
-                                                    <option value="KS" <?= $data["agama"]=="KS"? "selected": '';?>>Kristen</option>
-                                                    <option value="KH" <?= $data["agama"]=="KH"? "selected": '';?>>Konghucu</option>
+                                                    <option value="A1" <?= $data["agama"]=="A1"? "selected": '';?>>Hindu</option>
+                                                    <option value="A2" <?= $data["agama"]=="A2"? "selected": '';?>>Islam</option>
+                                                    <option value="A3" <?= $data["agama"]=="A3"? "selected": '';?>>Kristen Protestan</option>
+                                                    <option value="A4" <?= $data["agama"]=="A4"? "selected": '';?>>Kristen Katolik</option>
+                                                    <option value="A5" <?= $data["agama"]=="A5"? "selected": '';?>>Budha</option>
+                                                    <option value="A6" <?= $data["agama"]=="A6"? "selected": '';?>>Konghucu</option>
 
                                                 </select>
                                             </div>

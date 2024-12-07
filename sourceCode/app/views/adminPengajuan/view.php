@@ -58,14 +58,14 @@
                                             <label class="col-lg-4 col-form-label" for="agama">Agama<span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" value="<?= $data['agama'] == 'HI' ? 'Hindu' : ($data['agama'] == 'IS' ? 'Islam' : ($data['agama'] == 'KH' ? 'Konghucu' : ($data['agama'] == 'KS' ? 'Kristen' : ($data['agama'] == 'BD' ? 'Budha' : '')))) ?>" id="agama" name="agama" placeholder="Agama">
+                                                <input type="text" class="form-control" value="<?= $data['agama'] == 'A1' ? 'Hindu' : ($data['agama'] == 'A2' ? 'Islam' : ($data['agama'] == 'A3' ? 'Kristen Protestan' : ($data['agama'] == 'A4' ? 'Kristen Katolik' : ($data['agama'] == 'A5' ? 'Budha' : ($data['agama'] == 'A6' ? 'Konghucu' : ''))))) ?>" id="agama" name="agama" placeholder="Agama">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="sKawin">Status Kawin<span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" value="<?=$data['statusPerkawinan']?>" id="statusPerkawinan" name="statusPerkawinan" placeholder="Status Kawin">
+                                                <input type="text" class="form-control" value="<?=$data['statusPerkawinan'] == "B" ? 'Belum' : ($data['agama']== 'S' ? 'Sudah' : "")?>" id="statusPerkawinan" name="statusPerkawinan" placeholder="Status Kawin">
                                             </div>
                                         </div>
                                         <div class="form-group row">

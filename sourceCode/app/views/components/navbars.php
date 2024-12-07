@@ -112,7 +112,7 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="index.php?action=radminPengajuan">Pengajuan</a></li>
-                        <li><a href="index.php?action=rInfokamar">Pembuatan</a></li>
+                        <li><a href="index.php?action=radminPembuatan">Pembuatan</a></li>
                     </ul>
                 </li>
             </ul>
