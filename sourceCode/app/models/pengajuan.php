@@ -29,6 +29,13 @@ class pengajuan {
         $stmt->execute();
         return $stmt;
     }
+    public function checkUser($id_user){
+        $query = "SELECT * FROM " . $this->table_name . " WHERE id_user=:id_user";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":id_user", $id_user);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     public function show($id){
         $query = "SELECT * FROM " . $this->table_name . " WHERE id=:id";
         $stmt = $this->conn->prepare($query);
@@ -37,31 +44,35 @@ class pengajuan {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     function uploadFile($path, $name)
-    {
-        $namaFile = $_FILES[$name]["name"];
-        $ukuranFile = $_FILES[$name]["size"];
-        $tmpFile = $_FILES[$name]["tmp_name"];
-        $ekstensiValid = ['jpg', 'jpeg', 'png'];
-        $ekstensiGambar = explode('.', $namaFile);
+{
+    $namaFile = $_FILES[$name]["name"];
+    $ukuranFile = $_FILES[$name]["size"];
+    $tmpFile = $_FILES[$name]["tmp_name"];
+    $ekstensiValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
 
-        $ekstensiGambar = strtolower(end($ekstensiGambar));
-        if (!in_array($ekstensiGambar, $ekstensiValid)) {
-            return 401;
-        }
-        if ($ukuranFile > 1000000) {
-            return 402;
-        }
-        if (!isset($_SESSION["fileLPengajuan"])) {
-            $_SESSION["fileLPengajuan"] = [];
-        }
-        $_SESSION["fileLPengajuan"][$name] = $namaFile;
-        $namaFileBaru = uniqid();
-        $namaFileBaru .= '.';
-        $namaFileBaru .= $ekstensiGambar;
-
-        move_uploaded_file($tmpFile, "app/views/assets/images/".$path ."/" . $namaFileBaru);
-        return $namaFileBaru;
+    if (!in_array($ekstensiGambar, $ekstensiValid)) {
+        return 401; // Ekstensi tidak valid
     }
+
+    if ($ukuranFile > 10000000) {
+        return 402; // Ukuran file terlalu besar
+    }
+
+    $namaFileBaru = uniqid('', true) . '.' . $ekstensiGambar;
+
+    $uploadDir = "app/views/assets/images/" . $path;
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
+    }
+
+    if (move_uploaded_file($tmpFile, $uploadDir . '/' . $namaFileBaru)) {
+        return $namaFileBaru; 
+    } else {
+        return 500; 
+    }
+}
+
 
     public function create()
     {
@@ -83,7 +94,7 @@ class pengajuan {
         $this->status = htmlspecialchars(strip_tags($this->status));
         $this->pathKK = htmlspecialchars(strip_tags($this->pathKK));
         $this->pathRekumendasi = htmlspecialchars(strip_tags($this->pathRekumendasi));
-        $this->id_user = 1;
+        $this->id_user = htmlspecialchars(strip_tags($this->id_user));
 
         $stmt->bindParam(":nama", $this->nama);
         $stmt->bindParam(":jk", $this->jk);

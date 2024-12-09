@@ -21,6 +21,7 @@ if (isset($_SESSION['pengajuan'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.2/dist/aos.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="app/views/assets/js/nav.js"></script>
+    <script src="app/views/assets/js/statusPJ.js"></script>
 </head>
 
 <body>
@@ -84,7 +85,7 @@ if (isset($_SESSION['pengajuan'])) {
                                     <i class='bx bx-question-mark'></i>
                                     <p class="helpAlamat">Format alamat harus dipisahkan dengan tanda koma, seperti: Nama Banjar, Nama Desa, Nama Kecamatan, Nama Kabupaten.</p>
                                 </div>
-                                <textarea name="alamat" id="alamat" <?= isset($data) ? 'readonly' : ''; ?> placeholder="Contoh: BR.Tukad, Bedulu, Tegallalang, Gianyar"> <?= isset($data) ? $data['alamat'] : ''; ?></textarea>
+                                <textarea placeholder="Contoh: BR.Tukad, Bedulu, Tegallalang, Gianyar" name="alamat" id="alamat" <?= isset($data) ? 'readonly' : ''; ?>> <?= isset($data) ? $data['alamat'] : ''; ?></textarea>
                             </div>
                         </div>
                         <div class="cardFormp2">
@@ -92,26 +93,26 @@ if (isset($_SESSION['pengajuan'])) {
                                 <label for="jk">Jenis Kelamin</label>
                                 <select name="jk" id="jk" <?= isset($data) ? 'disabled' : ''; ?>>
                                     <option disabled selected hidden>Pilih</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="P">Perempuan</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="L">Laki - Laki</option>
+                                    <option <?= isset($data) && $data['jk']=='P'  ? 'selected' : ''; ?> value="P">Perempuan</option>
+                                    <option <?= isset($data) && $data['jk']=='L' ? 'selected' : ''; ?> value="L">Laki - Laki</option>
                                 </select>
                             </div>
                             <div>
                                 <label for="golDarah">Golongan darah</label>
                                 <select name="golDarah" <?= isset($data) ? 'disabled' : ''; ?> id="golDarah">
                                     <option disabled selected hidden>Pilih</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="A">A</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="A+">A+</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="A-">A-</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="B">B</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="B+">B+</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="B-">B-</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="AB">AB</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="AB+">AB+</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="AB-">AB-</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="O">O</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="O+">O+</option>
-                                    <option <?= isset($data) ? 'selected' : ''; ?> value="O-">O-</option>
+                                    <option <?= isset($data) && $data['golDarah']=='A' ? 'selected' : ''; ?> value="A">A</option>
+                                    <option <?= isset($data) && $data['golDarah']=='A+' ? 'selected' : ''; ?> value="A+">A+</option>
+                                    <option <?= isset($data) && $data['golDarah']=='A-' ? 'selected' : ''; ?> value="A-">A-</option>
+                                    <option <?= isset($data) && $data['golDarah']=='B' ? 'selected' : ''; ?> value="B">B</option>
+                                    <option <?= isset($data) && $data['golDarah']=='B+' ? 'selected' : ''; ?> value="B+">B+</option>
+                                    <option <?= isset($data) && $data['golDarah']=='B-' ? 'selected' : ''; ?> value="B-">B-</option>
+                                    <option <?= isset($data) && $data['golDarah']=='AB' ? 'selected' : ''; ?> value="AB">AB</option>
+                                    <option <?= isset($data) && $data['golDarah']=='AB+' ? 'selected' : ''; ?> value="AB+">AB+</option>
+                                    <option <?= isset($data) && $data['golDarah']=='AB-' ? 'selected' : ''; ?> value="AB-">AB-</option>
+                                    <option <?= isset($data) && $data['golDarah']=='O' ? 'selected' : ''; ?> value="O">O</option>
+                                    <option <?= isset($data) && $data['golDarah']=='O+' ? 'selected' : ''; ?> value="O+">O+</option>
+                                    <option <?= isset($data) && $data['golDarah']=='O-' ? 'selected' : ''; ?> value="O-">O-</option>
                                 </select>
                             </div>
                         </div>
@@ -120,20 +121,20 @@ if (isset($_SESSION['pengajuan'])) {
                                 <label for="agama">Agama</label>
                                 <select name="agama" id="agama" <?= isset($data) ? 'disabled' : ''; ?>>
                                     <option disabled selected hidden>Pilih</option>
-                                    <option value="A1" <?= isset($data) ? 'selected' : ''; ?>>Hindu</option>
-                                    <option value="A2" <?= isset($data) ? 'selected' : ''; ?>>Islam</option>
-                                    <option value="A3" <?= isset($data) ? 'selected' : ''; ?>>Kristen Protestan</option>
-                                    <option value="A4" <?= isset($data) ? 'selected' : ''; ?>>Kristen Katolik</option>
-                                    <option value="A5" <?= isset($data) ? 'selected' : ''; ?>>Buddha</option>
-                                    <option value="A6" <?= isset($data) ? 'selected' : ''; ?>>Konghucu</option>
+                                    <option value="A1" <?= isset($data) && $data['agama']=='A1' ? 'selected' : ''; ?>>Hindu</option>
+                                    <option value="A2" <?= isset($data) && $data['agama']=='A2' ? 'selected' : ''; ?>>Islam</option>
+                                    <option value="A3" <?= isset($data) && $data['agama']=='A3' ? 'selected' : ''; ?>>Kristen Protestan</option>
+                                    <option value="A4" <?= isset($data) && $data['agama']=='A4' ? 'selected' : ''; ?>>Kristen Katolik</option>
+                                    <option value="A5" <?= isset($data) && $data['agama']=='A5' ? 'selected' : ''; ?>>Buddha</option>
+                                    <option value="A6" <?= isset($data) && $data['agama']=='A6' ? 'selected' : ''; ?>>Konghucu</option>
                                 </select>
                             </div>
                             <div>
                                 <label for="statusPerkawinan">Status Perkawinan</label>
                                 <select name="statusPerkawinan" id="statusPerkawinan" required <?= isset($data) ? 'disabled' : ''; ?>>
                                     <option disabled selected hidden>Pilih</option>
-                                    <option value="B" <?= isset($data) ? 'selected' : ''; ?>>Belum Kawin</option>
-                                    <option value="S" <?= isset($data) ? 'selected' : ''; ?>>Sudah Kawin</option>
+                                    <option value="B" <?= isset($data) && $data['statusPerkawinan']=='B' ? 'selected' : ''; ?>>Belum Kawin</option>
+                                    <option value="S" <?= isset($data) && $data['statusPerkawinan']=='S' ? 'selected' : ''; ?>>Sudah Kawin</option>
                                 </select>
                             </div>
                         </div>
@@ -144,7 +145,7 @@ if (isset($_SESSION['pengajuan'])) {
                             </div>
                             <div>
                                 <label for="negara">Kewarganegaraan</label>
-                                <input type="text" name="negara" id="negara" value="<?= isset($data) ? $data['negara'] : ''; ?>" <?= isset($data) ? 'readonly' : ''; ?> required placeholder="masukan kewarganegaraan anda">
+                                <input type="text" name="negara" id="negara" value="<?= isset($data) ? $data['negara'] : ''; ?>" <?= isset($data) ? 'readonly' : ''; ?> required placeholder="Masukan kewarganegaraan anda">
                             </div>
                         </div>
                         <div class="cardDocx">
@@ -153,12 +154,12 @@ if (isset($_SESSION['pengajuan'])) {
                                 <div class="divDocxP2">
                                     <label for="pathKK">Foto KK(Kartu Keluarga)</label>
                                     <input type="file" id="pathKK" <?= isset($data) ? 'disabled' : ''; ?> name="pathKK" required>
-                                    <p><?= isset($data) ? $_SESSION["fileLPengajuan"]['pathKK'] : ''; ?></p>
+                                    <p><?= isset($data) ? $data['pathKK'] : ''; ?></p>
                                 </div>
                                 <div class="divDocxP2">
                                     <label for="pathRekumendasi">Foto Surat Pengantar</label>
                                     <input type="file" id="pathRekumendasi" name="pathRekumendasi" required <?= isset($data) ? 'disabled' : ''; ?>>
-                                    <p><?= isset($data) ? $_SESSION["fileLPengajuan"]['pathRekumendasi'] : ''; ?></p>
+                                    <p><?= isset($data) ? $data['pathRekumendasi'] : '';?></p>
                                 </div>
                             </div>
                             <div class="btnP2">
@@ -173,7 +174,6 @@ if (isset($_SESSION['pengajuan'])) {
         </Section>
     </main>
     <?php require("app/views/components/footers.php") ?>
-    <script src="app/views/assets/js/status.js"></script>
 </body>
 
 </html>

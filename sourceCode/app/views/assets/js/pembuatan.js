@@ -14,12 +14,14 @@ $(document).ready(function () {
     });
 
     dropArea.on("drop", function (e) {
-      e.preventDefault();
-      dropArea.removeClass("hover");
-      const file = e.originalEvent.dataTransfer.files[0];
-      if (file) {
-        fileInput[0].files = e.originalEvent.dataTransfer.files; // Set file to input
-        displayPreview(file);
+      if (!dropArea.hasClass("disabled")) {
+        e.preventDefault();
+        dropArea.removeClass("hover");
+        const file = e.originalEvent.dataTransfer.files[0];
+        if (file) {
+          fileInput[0].files = e.originalEvent.dataTransfer.files;
+          displayPreview(file);
+        }
       }
     });
     dropArea.on("click", function (e) {
@@ -49,9 +51,9 @@ $(document).ready(function () {
   function ttd(idCanvas, idTtd, idBtnClear, idBtnSave) {
     let canvas = $(idCanvas)[0];
     let ctx = canvas.getContext("2d");
-    ctx.lineCap = "round"; // Ujung garis bulat
-    ctx.lineJoin = "round"; 
-    ctx.lineWidth = 100; 
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.lineWidth = 100;
     let isDrawing = false;
     const inputFile = $(idTtd)[0];
     const clear = $(idBtnClear);
@@ -117,7 +119,7 @@ $(document).ready(function () {
       const dataTransfer = new DataTransfer();
       dataTransfer.items.add(file);
       inputFile.files = dataTransfer.files;
-      alert("Tanda tangan disimpan!");
+      alertSuksess("Sukses!", "Tanda tangan anda akan di simapan.");
     });
 
     function dataURLtoFile(dataUrl, filename) {
@@ -133,4 +135,7 @@ $(document).ready(function () {
     }
   }
   ttd("#canvas", "#ttdInput", "#clear", "#save");
+
+  function SubmitPem() {}
+  // SubmitPem();
 });
