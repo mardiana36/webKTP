@@ -107,7 +107,7 @@
                                     <div class="form-group row">
                                         <div class="col-lg-8 ml-auto">
                                             <button type="submit" class="btn btn-primary" style="background-color: #009BF4;">Kembali</button>
-                                        <a href=""  class="sweet-confirm"  data-toggle="tooltip" data-placement="top" title="Approve">
+                                        <a href="index.php?action=aPengajuan&id=<?= $data['id'] ?>"  class="sweet-confirm"  data-toggle="tooltip" data-placement="top" title="Approve">
                                             <button class="btn btn-primary" style="background-color: #009BF4;">Approve</button>
                                         </a>
                                     </div>
