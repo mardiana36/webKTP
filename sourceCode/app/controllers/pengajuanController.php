@@ -42,6 +42,7 @@ class pengajuanController
                         $jk = $_POST['jk'];
                         $nik = $_POST['nik'];
                         $tmpLahir = $_POST['tmpLahir'];
+                        
                         $tglLahir = $_POST['tglLahir'];
                         $alamat = $_POST['alamat'];
                         $agama = $_POST['agama'];

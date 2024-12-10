@@ -52,8 +52,8 @@ class pembuatanController
     }
     public function pembuatan()
     {
-        $id = 1;
-        $data = $this->checkStatusPengajuan($id);
+        $id_user = 1;
+        $data = $this->checkStatusPengajuan($id_user);
         $id_pengajuan = !empty($data) ? $data['id'] : null ;
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (isset($_FILES["pathFoto"]) && $_FILES["pathFoto"]["error"] === UPLOAD_ERR_OK) {
@@ -93,7 +93,7 @@ class pembuatanController
                 require "app/views/pembuatan/index.php";
             } else {
                 echo "<script>document.addEventListener('DOMContentLoaded', () => {
-  alertWarning('Peringatan!', 'Anda Haya bisa mengakses Halaman ini ketika status Pengajuan (Berhasil Diajukan)', 'index.php?action=pengajuan');
+  alertWarning('Peringatan!', 'Anda Haya bisa mengakses Halaman ini ketika status Pengajuan (Berhasil Diajukan). Anda akan dialihkan ke halaman Pengajuan', 'index.php?action=pengajuan');
 })</script>";
             }
         }

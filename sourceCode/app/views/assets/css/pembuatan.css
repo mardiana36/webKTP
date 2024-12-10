@@ -152,7 +152,7 @@ input:focus {
     position: relative;
     width: 100%;
     height: max-content;
-    cursor: url('../images/pencil.png') 1 26, pointer;
+    cursor: url('../images/pencil.png') 1 26 , pointer;
 }
 .imgPemPB1{
     display: none;
