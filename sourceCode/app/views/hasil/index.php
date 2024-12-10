@@ -68,7 +68,7 @@
                                                         <p>Jenis Kelamin</p>
                                                     </td>
                                                     <td>
-                                                        <p>:  <?= $data['jk'] == 'P' ? 'perempuan': ($data == 'L' ? 'laki-laki' : '') ?></p>
+                                                        <p>:  <?= $data['jk'] == 'P' ? 'perempuan': ($data['jk'] == 'L' ? 'laki-laki' : '') ?></p>
                                                     </td>
                                                     <td>
                                                         <p>Gol.Darah: <span> <?= $data['golDarah'] ?></span></p>

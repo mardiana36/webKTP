@@ -144,6 +144,12 @@ $(document).ready(function () {
           }
         }
       }
+
+      const padding = 10;
+      minX = Math.max(0, minX - padding);
+      minY = Math.max(0, minY - padding);
+      maxX = Math.min(originalCanvas.width, maxX + padding);
+      maxY = Math.min(originalCanvas.height, maxY + padding);
   
       // Menghitung ukuran canvas baru berdasarkan batas tanda tangan
       const croppedWidth = maxX - minX;

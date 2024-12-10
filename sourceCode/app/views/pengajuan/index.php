@@ -85,7 +85,7 @@ if (isset($_SESSION['pengajuan'])) {
                                     <i class='bx bx-question-mark'></i>
                                     <p class="helpAlamat">Format alamat harus dipisahkan dengan tanda koma, seperti: Nama Banjar, Nama Desa, Nama Kecamatan, Nama Kabupaten.</p>
                                 </div>
-                                <textarea placeholder="Contoh: BR.Tukad, Bedulu, Tegallalang, Gianyar" name="alamat" id="alamat" <?= isset($data) ? 'readonly' : ''; ?>> <?= isset($data) ? $data['alamat'] : ''; ?></textarea>
+                                <textarea placeholder="Contoh: BR.Tukad, Bedulu, Tegallalang, Gianyar" name="alamat" id="alamat" <?= isset($data) ? 'readonly' : ''; ?>><?= isset($data) ? $data['alamat'] : ''; ?></textarea>
                             </div>
                         </div>
                         <div class="cardFormp2">

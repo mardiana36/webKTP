@@ -75,7 +75,9 @@ if (isset($_SESSION['pembuatan'])) {
                                     <?php endif; ?>
                                     <input type="file" id="ttdInput" <?= !empty($dtPem) ? 'disabled' : '' ?> accept=".jpg, .png, .jpeg" name="pathTtd" required>
                                     <Button type="button" id="save">Simpan</Button>
-                                    <img style="<?= !empty($dtPem) ? 'display:block' : '' ?>" src="<?= !empty($dtPem) ? 'app/views/assets/images/pathTtd/' . $dtPem['pathTtd'] : '' ?>" class="imgPemPB1" alt="">
+                                    <div style="<?= !empty($dtPem) ? 'display:block' : '' ?>" class="imgPemPB1">
+                                        <img  src="<?= !empty($dtPem) ? 'app/views/assets/images/pathTtd/' . $dtPem['pathTtd'] : '' ?>"  alt="">
+                                    </div>
                                 </div>
                             </div>
                             <?php if (!isset($dtPem)): ?>
@@ -122,7 +124,7 @@ if (isset($_SESSION['pembuatan'])) {
                                         <i class='bx bx-question-mark'></i>
                                         <p class="helpAlamat">Format alamat harus dipisahkan dengan tanda koma, seperti: Nama Banjar, Nama Desa, Nama Kecamatan, Nama Kabupaten.</p>
                                     </div>
-                                    <textarea placeholder="Contoh: BR.Tukad, Bedulu, Tegallalang, Gianyar" name="alamat" id="alamat" <?= isset($data) ? 'readonly' : ''; ?>> <?= isset($data) ? $data['alamat'] : ''; ?></textarea>
+                                    <textarea placeholder="Contoh: BR.Tukad, Bedulu, Tegallalang, Gianyar" name="alamat" id="alamat" <?=isset($data) ? 'readonly' : '';?>><?= isset($data) ? $data['alamat'] : ''?></textarea>
                                 </div>
                             </div>
                             <div class="cardFormp2">

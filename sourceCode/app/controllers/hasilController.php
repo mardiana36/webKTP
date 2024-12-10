@@ -25,7 +25,7 @@ class hasilController
             require "app/views/hasil/index.php";
         } else {
             echo "<script>document.addEventListener('DOMContentLoaded', () => {
-                alertWarning('Peringatan!', 'Anda Haya bisa mengakses Halaman Hasil ketika status Pembuatan (Berhasil DiBuat). Anda akan dialihkan ke halaman Pembuatan', 'index.php?action=pengajuan');
+                alertWarning('Peringatan!', 'Anda Haya bisa mengakses Halaman Hasil ketika status Pembuatan (Berhasil DiBuat).', 'index.php?action=pembuatan');
               })</script>";
         }
     }

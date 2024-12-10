@@ -93,7 +93,7 @@ class pembuatanController
                 require "app/views/pembuatan/index.php";
             } else {
                 echo "<script>document.addEventListener('DOMContentLoaded', () => {
-  alertWarning('Peringatan!', 'Anda Haya bisa mengakses Halaman ini ketika status Pengajuan (Berhasil Diajukan). Anda akan dialihkan ke halaman Pengajuan', 'index.php?action=pengajuan');
+  alertWarning('Peringatan!', 'Anda Haya bisa mengakses Halaman Pembuatan ketika status Pengajuan (Berhasil Diajukan).', 'index.php?action=pengajuan');
 })</script>";
             }
         }

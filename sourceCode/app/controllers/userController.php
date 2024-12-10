@@ -14,7 +14,6 @@ class userController
         $this->db = $database->getConnection();
         $this->user = new user($this->db);
     }
-
     public function login()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -42,6 +41,7 @@ class userController
         }
     }
     public function regis(){
+        
         require "app/views/registrasi/index.php";
     }
     public function logout()
