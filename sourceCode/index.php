@@ -30,9 +30,15 @@ $hasilController = new hasilController();
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 $id = isset($_GET['id']) ? $_GET['id'] : '';
-// if (!isset($_SESSION["login"]) && $action != '') {
-//     $action = "index.php";
-// }
+if (empty($_SESSION["login"]) && ($action == 'pengajuan' ||  $action == 'pembuatan' ||  $action == 'hasil')) {
+    echo `
+<script src="app/views/assets/js/templateAlert.js"></script>
+<script src="app/views/assets/js/alert.js"></script>`;
+$action = "index.php?action=login";
+echo "<script>document.addEventListener('DOMContentLoaded', () => {
+    alertWarning('Peringatan!', 'Halam ini hanya bisa di akses ketika anda sudah login!', 'index.php?action=login');
+  })</script>";
+} 
 if (isset($_SESSION['role']) && $_SESSION['role'] != "admin") {
     switch ($action) {
         case "rUser":
@@ -263,13 +269,13 @@ switch ($action) {
         $pemesananController->delete($id);
         require "app/views/components/footers.php";
         break;
-    case "loginFalse":
-        $_SESSION['page'] = "Login";
-        require "app/views/components/headers.php";
-        echo "<script src='app/views/assets/js/alert.js'></script>";
-        $userController->login();
-        echo "<script>showSweetAlert('Oops...', 'The email/username or password you entered is incorrect!!!');</script>";
-        break;
+        // case "loginFalse":
+        //     $_SESSION['page'] = "Login";
+        //     require "app/views/components/headers.php";
+        //     echo "<script src='app/views/assets/js/alert.js'></script>";
+        //     $userController->login();
+        //     echo "<script>showSweetAlert('Oops...', 'The email/username or password you entered is incorrect!!!');</script>";
+        //     break;
     case "logout":
         $userController->logout();
         break;

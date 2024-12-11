@@ -31,7 +31,7 @@ class pengajuanController
 
     public function pengajuan()
     {
-        $id_user = 1;
+        $id_user = !empty( $_SESSION['idU']) ?  $_SESSION['idU'] : '';
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (isset($_FILES["pathKK"]) && $_FILES["pathKK"]["error"] === UPLOAD_ERR_OK) {
                 $pathKK = $this->pengajuan->uploadFile("kk", "pathKK");

@@ -64,7 +64,20 @@
         bottom: 50%;
     }
 }
-
+.statusUser{
+    color: rgb(255, 0, 0);
+    margin-top: 5px;
+    font-weight: 600;
+    position: absolute;
+    width: max-content;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+.statusA{
+    opacity: 1 !important;
+    visibility: visible !important; 
+}
 .cardLogin::after{
     content: "";
     position: absolute;

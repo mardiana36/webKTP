@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="app/views/assets/js/nav.js"></script>
     <script src="app/views/assets/js/login.js"></script>
+    <script src="app/views/assets/js/statusDataUser.js"></script>
 </head>
 
 <body>
@@ -26,24 +27,26 @@
                     <div class="containerTitle">
                         <h1>Registrasi</h1>
                     </div>
-                    <form action="" class="formRegis formLogin">
+                    <form action="index.php?action=regis" method="post" id="fmRegis" class="formRegis formLogin">
                         <div class="divInputLogin">
                             <label for="userName">Username</label>
-                            <input type="text" id="userName" required>
+                            <input type="text" name="username" id="userName" class="inputCh" required>
                             <div class="divIconLogin">
                                 <i class='bx bxs-user'></i>
                             </div>
+                            <p class="statusUser">Username Sudah Terdaftar gunakan Username lain</p>
                         </div>
                         <div class="divInputLogin">
                             <label for="emailRegis">Email</label>
-                            <input type="email" id="emailRegis" required >
+                            <input type="email" name="email" id="emailRegis" class="inputCh"  required >
                             <div class="divIconLogin">
                                 <i class='bx bxs-envelope'></i>
                             </div>
+                            <p class="statusUser">Email Sudah Terdaftar gunakan Email lain</p>
                         </div>
                         <div class="divInputLogin">
                             <label for="passwordRegis">Password</label>
-                            <input type="password" minlength="8" key="password" class="statusActive" id="passwordRegis" required >
+                            <input type="password" name="password" minlength="8" key="password" class="statusActive" id="passwordRegis" required >
                             <div class="divIconLogin">
                                 <i class='bx bxs-lock iconPassword'></i>
                             </div>

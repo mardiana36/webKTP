@@ -52,7 +52,7 @@ class pembuatanController
     }
     public function pembuatan()
     {
-        $id_user = 1;
+        $id_user = !empty( $_SESSION['idU']) ?  $_SESSION['idU'] : '';;
         $data = $this->checkStatusPengajuan($id_user);
         $id_pengajuan = !empty($data) ? $data['id'] : null ;
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -102,8 +102,7 @@ class pembuatanController
     {
         if (isset($_SESSION['idPembuatan'])) {
             return $this->pembuatan->checkP($id);
-        } else {
-        }
+        } 
         return false;
     }
 }

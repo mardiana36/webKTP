@@ -52,11 +52,11 @@ class pengajuan {
     $ekstensiGambar = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
 
     if (!in_array($ekstensiGambar, $ekstensiValid)) {
-        return 401; // Ekstensi tidak valid
+        return 401; 
     }
 
     if ($ukuranFile > 10000000) {
-        return 402; // Ukuran file terlalu besar
+        return 402;
     }
 
     $namaFileBaru = uniqid('', true) . '.' . $ekstensiGambar;

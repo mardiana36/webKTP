@@ -56,7 +56,7 @@ class user
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->password = htmlspecialchars(strip_tags($this->password));
         $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->role = htmlspecialchars(strip_tags($this->role));
+        $this->role = $this->role;
 
         $stmt->bindParam(":id", $this->id);
         $stmt->bindParam(":username", $this->username);

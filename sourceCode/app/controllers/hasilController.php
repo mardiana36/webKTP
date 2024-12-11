@@ -18,7 +18,7 @@ class hasilController
 
     public function hasil()
     {
-        $id_user = 1;
+        $id_user = !empty( $_SESSION['idU']) ?  $_SESSION['idU'] : '';;
         $data = $this->hasil->show($id_user);
         if (!empty($data)) {
             $alamat = explode(',', $data['alamat']);
