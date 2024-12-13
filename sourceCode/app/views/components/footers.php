@@ -1,9 +1,14 @@
-<footer>
-        <div class="cardFooter-2">
-            <p><i class='bx bx-copyright'></i> 2024 E-KTP - Dinas Kependudukan dan Pencatatan Sipil</p>
+</div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; 2024 Dinas Kependudukan dan Pencatatan Sipil</p>
+            </div>
         </div>
-    </footer>
+  
+</div>
 <?php
-include "app/views/components/scripts.php"
+include "app/views/components/scripts.php"?>
 
-?>
+  
+</body>
+</html>

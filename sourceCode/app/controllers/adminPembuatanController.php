@@ -15,7 +15,7 @@ class adminPembuatanController
         $this->adminPembuatan = new adminPembuatan($this->db);
     }
 
-    public function index()
+    public function getAdminPembuatan()
     {
         $stmt = $this->adminPembuatan->readPembuatan();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -67,52 +67,19 @@ class adminPembuatanController
         }
     }
 
-        public function view($id){
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $pathFoto = $_POST['pathFoto'];
-            $pathTtd = $_POST['pathTtd'];
+    public function view($id){
+        $stmt = $this->adminPembuatan->showPembuatan($id);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $this->adminPembuatan->id = $id;
-            $this->adminPembuatan->pathFoto = $pathFoto;
-            $this->adminPembuatan->pathTtd = $pathTtd;
-
-            if ($this->adminPembuatan->viewPembuatan()) {
+        if ($data) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
                 echo "<script>window.location.href = 'index.php?action=radminPembuatan';</script>";
-            } else {
-                echo "<script>alert('Terjadi kesalahan pada saat update!');</script>";
+                exit();
+            } else { 
+                include 'app/views/adminPembuatan/view.php'; 
             }
         } else {
-            $stmt = $this->adminPembuatan->showPembuatan($id);
-            $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($data) {
-                include 'app/views/adminPembuatan/view.php';
-            } else {
-                echo "User not found.";
-            }
-        }
-    }
-
-    private function processFileUpload($fieldName, $oldFilePath) {
-        if ($_FILES[$fieldName]['error'] === UPLOAD_ERR_OK) {
-            $target_dir = "app/views/assets/images/foto/";
-            $target_file = $target_dir . basename($_FILES[$fieldName]["name"]);
-            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-            var_dump($_FILES);
-            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-                echo "<script>alert('Tipe file $fieldName tidak valid!');</script>";
-                return false;
-            } elseif ($_FILES[$fieldName]["size"] > 2000000) {
-                echo "<script>alert('Ukuran file $fieldName terlalu besar!');</script>";
-                return false;
-            } else {
-                if (move_uploaded_file($_FILES[$fieldName]["tmp_name"], $target_file)) {
-                    return basename($_FILES[$fieldName]["name"]); 
-                } else {
-                    return false; 
-                }
-            }
-        } else {
-            return $oldFilePath; 
+            echo "Data not found."; 
         }
     }
 

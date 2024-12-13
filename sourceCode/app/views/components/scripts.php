@@ -21,6 +21,8 @@
  <script src="app/views/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
  <script src="app/views/assets/js/plugins-init/form-pickers-init.js"></script>
  <script src="app/views/assets/js/templateAlert.js"></script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+ 
 
  <script>
      $(document).ready(function() {
@@ -69,13 +71,12 @@
          event.preventDefault();
          var linkUrl = this.getAttribute('href');
          swal({
-                 title: "Are you sure to delete?",
-                 text: "You will not be able to recover this imaginary file!!",
+                 title: "Anda yakin untuk melakukan approve?",
                  icon: "warning",
                  buttons: {
                      cancel: "Cancel",
                      confirm: {
-                         text: "Yes, delete it!!",
+                         text: "Approve",
                          value: true,
                          visible: true,
                          className: "confirm-button",

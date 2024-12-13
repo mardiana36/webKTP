@@ -16,7 +16,7 @@ class adminPengajuanController
         $this->adminPengajuan = new adminPengajuan($this->db);
     }
 
-    public function index()
+    public function getAdminPengajuan()
     {
         $stmt = $this->adminPengajuan->readPengajuan();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,7 +38,7 @@ public function update($id)
         $negara = $_POST['negara'];
         $golDarah = $_POST['golDarah'];
 
-        $stmt = $this->adminPengajuan->showPengajuan($id);
+        $stmt = $this->adminPengajuan->showUpdate($id);
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $pathKK = $this->processFileUpload('pathKK', $data['pathKK']); 
@@ -82,53 +82,22 @@ public function update($id)
             echo "User not found.";
         }
     }
-}
+ }
 
     public function view($id)
     {
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $nama = $_POST['nama'];
-            $jk = $_POST['jk'];
-            $nik = $_POST['nik'];
-            $tmpLahir = $_POST['tmpLahir'];
-            $tglLahir = $_POST['tglLahir'];
-            $alamat = $_POST['alamat'];
-            $agama = $_POST['agama'];
-            $statusPerkawinan = $_POST['statusPerkawinan'];
-            $pekerjaan = $_POST['pekerjaan'];
-            $negara = $_POST['negara'];
-            $golDarah = $_POST['golDarah'];
-            $pathKK = $_POST['pathKK'];
-            $pathRekumendasi = $_POST['pathRekumendasi'];
+        $stmt = $this->adminPengajuan->showPengajuan($id);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $this->adminPengajuan->id = $id;
-            $this->adminPengajuan->nama = $nama;
-            $this->adminPengajuan->jk = $jk;
-            $this->adminPengajuan->nik = $nik;
-            $this->adminPengajuan->tmpLahir = $tmpLahir;
-            $this->adminPengajuan->tglLahir = $tglLahir;
-            $this->adminPengajuan->alamat = $alamat;
-            $this->adminPengajuan->agama = $agama;
-            $this->adminPengajuan->statusPerkawinan = $statusPerkawinan;
-            $this->adminPengajuan->pekerjaan = $pekerjaan;
-            $this->adminPengajuan->negara = $negara;
-            $this->adminPengajuan->golDarah = $golDarah;
-            $this->adminPengajuan->pathKK = $pathKK;
-            $this->adminPengajuan->pathRekumendasi = $pathRekumendasi;
-
-            if ($this->adminPengajuan->viewPengajuan()) {
+        if ($data) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
                 echo "<script>window.location.href = 'index.php?action=radminPengajuan';</script>";
-            } else {
-                echo "<script>alert('Terjadi kesalahan pada saat update!');</script>";
+                exit();
+            } else { 
+                include 'app/views/adminPengajuan/view.php'; 
             }
         } else {
-            $stmt = $this->adminPengajuan->showPengajuan($id);
-            $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($data) {
-                include 'app/views/adminPengajuan/view.php';
-            } else {
-                echo "User not found.";
-            }
+            echo "Data not found."; 
         }
     }
 

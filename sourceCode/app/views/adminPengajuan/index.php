@@ -35,7 +35,7 @@
                                                  <td><img src="app/views/assets/images/foto/<?=$u['pathRekumendasi'] ?>" width="100" alt=""></td>
                                                  <td><?= $u['nama'] ?></td>
                                                  <td><?= $u['nik'] ?></td>
-                                                 <td><?= $u['status'] == 'PJ' ? 'Pengajuan' : ($u['status'] == 'PJC' ? 'Pengajuan Dicek' : '') ?></td>
+                                                 <td><?= $u['status'] == 'PJ' ? 'Pengajuan' : ($u['status'] == 'PJC' ? 'Pengajuan <i class="fas fa-check color-muted m-r-5" style="color: #009bf4;"></i> ' : '') ?></td>
                                                  <td>
                                                      <span>
                                                         <a href="index.php?action=vadminPengajuan&id=<?= $u['id'] ?>" data-toggle="tooltip" data-placement="top" title="View">
@@ -48,7 +48,7 @@
                                                              <i class="fa fa-pencil color-muted m-r-5 "></i>
                                                             </button>
                                                         </a>
-                                                         <a href="index.php?action=aPengajuan&id=<?= $u['id'] ?>" data-toggle="tooltip" data-placement="top" title="Approve">
+                                                         <a href="index.php?action=aPengajuan&id=<?= $u['id'] ?>" class="sweet-confirm" data-toggle="tooltip" data-placement="top" title="Approve">
                                                             <button class="button-aksi">
                                                              <i class="fa fa-check color-muted m-r-5 "></i>
                                                             </button>
@@ -76,8 +76,23 @@
              </div>
          </div>
      </div>
-     <!-- #/ container -->
+    
  </div>
- <!--**********************************
-        Content body end
-    ***********************************-->
+</div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; 2024 Dinas Kependudukan dan Pencatatan Sipil</p>
+            </div>
+        </div>
+  
+</div>
+<?php
+include "app/views/components/scripts.php"?>
+
+<script src='app/views/assets/js/getDataPengajuan.js'></script>
+  
+</body>
+</html>
+
+
+
