@@ -15,12 +15,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="app/views/assets/js/templateAlert.js"></script>
+    <script src="app/views/assets/js/alert.js"></script>
     <script src="app/views/assets/js/nav.js"></script>
     <script src="app/views/assets/js/hasil.js"></script>
+    <script src="app/views/assets/js/statusPL.js"></script>
+
 </head>
 
 <body>
-<?php
+    <?php
     require('app/views/components/navbarUser.php')
     ?>
     <main>
@@ -30,7 +34,7 @@
                     <div>
                         <h3>Preview KTP Anda</h3>
                         <div class="containerKTPSc">
-                            <div  id="ktp">
+                            <div id="ktp">
                                 <div class="containerKTP">
                                     <div class="titleKTP">
                                         <h3>PROVINSI BALI</h3>
@@ -52,7 +56,7 @@
                                                         <p>Nama</p>
                                                     </td>
                                                     <td>
-                                                        <p>:  <?= $data['nama'] ?></p>
+                                                        <p>: <?= $data['nama'] ?></p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -60,7 +64,7 @@
                                                         <p>Tempat/Tgl Lahir</p>
                                                     </td>
                                                     <td>
-                                                        <p>:  <?= $data['tmpLahir'] . ", ". date('d-m-Y', strtotime( $data['tglLahir'])) ?></p>
+                                                        <p>: <?= $data['tmpLahir'] . ", " . date('d-m-Y', strtotime($data['tglLahir'])) ?></p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -68,7 +72,7 @@
                                                         <p>Jenis Kelamin</p>
                                                     </td>
                                                     <td>
-                                                        <p>:  <?= $data['jk'] == 'P' ? 'perempuan': ($data['jk'] == 'L' ? 'laki-laki' : '') ?></p>
+                                                        <p>: <?= $data['jk'] == 'P' ? 'perempuan' : ($data['jk'] == 'L' ? 'laki-laki' : '') ?></p>
                                                     </td>
                                                     <td>
                                                         <p>Gol.Darah: <span> <?= $data['golDarah'] ?></span></p>
@@ -79,7 +83,7 @@
                                                         <p>Alamat</p>
                                                     </td>
                                                     <td>
-                                                        <p>:  <?=isset($alamat[0]) && isset($alamat[1]) ? $alamat[0].' '.$alamat[1] : '' ?></p>
+                                                        <p>: <?= isset($alamat[0]) && isset($alamat[1]) ? $alamat[0] . ' ' . $alamat[1] : '' ?></p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -95,7 +99,7 @@
                                                         <p class="tdAlamat">Kel/Desa</p>
                                                     </td>
                                                     <td>
-                                                        <p>:  <?= isset($alamat[1]) ? $alamat[1] : '' ?></p>
+                                                        <p>: <?= isset($alamat[1]) ? $alamat[1] : '' ?></p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -111,7 +115,7 @@
                                                         <p>Agama</p>
                                                     </td>
                                                     <td>
-                                                        <p>:  <?= $data['agama'] == 'A1' ? 'hindu': ($data['agama'] == 'A2' ? 'islam':($data['agama'] == 'A3'? 'Kristen Protestan': ($data['agama']=='A4'? 'Kristen Katolik':($data['agama']=='A5'? 'Buddha':($data['agama']=='A6'? 'konghucu': '')))))?></p>
+                                                        <p>: <?= $data['agama'] == 'A1' ? 'hindu' : ($data['agama'] == 'A2' ? 'islam' : ($data['agama'] == 'A3' ? 'Kristen Protestan' : ($data['agama'] == 'A4' ? 'Kristen Katolik' : ($data['agama'] == 'A5' ? 'Buddha' : ($data['agama'] == 'A6' ? 'konghucu' : ''))))) ?></p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -119,7 +123,7 @@
                                                         <p>Status Perkawinan</p>
                                                     </td>
                                                     <td>
-                                                        <p>:  <?= $data['statusPerkawinan'] == 'B' ? 'belum kawin': ($data['statusPerkawinan']=='S'? 'sudah kawin':'') ?></p>
+                                                        <p>: <?= $data['statusPerkawinan'] == 'B' ? 'belum kawin' : ($data['statusPerkawinan'] == 'S' ? 'sudah kawin' : '') ?></p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -127,7 +131,7 @@
                                                         <p>Pekerjaan</p>
                                                     </td>
                                                     <td>
-                                                        <p>: <?=$data['pekerjaan'] ?></p>
+                                                        <p>: <?= $data['pekerjaan'] ?></p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -135,7 +139,7 @@
                                                         <p>Kewarganegaraan</p>
                                                     </td>
                                                     <td>
-                                                        <p>:  <?=$data['negara'] ?></p>
+                                                        <p>: <?= $data['negara'] ?></p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -150,12 +154,12 @@
                                         </div>
                                         <div class="cardKTP">
                                             <div class="fotoKTP">
-                                                <img src="app/views/assets/images/pathFoto/<?=$data['pathFoto'] ?>" alt="foto profile KTP">
+                                                <img src="app/views/assets/images/pathFoto/<?= $data['pathFoto'] ?>" alt="foto profile KTP">
                                             </div>
                                             <p><?= isset($alamat[3]) ? $alamat[3] : '' ?></p>
-                                            <p><?= date('d-m-Y', strtotime( $data['tanggal_pembuatan'])) ?></p>
+                                            <p><?= date('d-m-Y', strtotime($data['tanggal_pembuatan'])) ?></p>
                                             <div class="imgTTD">
-                                                <img src="app/views/assets/images/pathTtd/<?=$data['pathTtd'] ?>" alt="tanda tangan">
+                                                <img src="app/views/assets/images/pathTtd/<?= $data['pathTtd'] ?>" alt="tanda tangan">
                                             </div>
                                         </div>
                                     </div>
@@ -207,15 +211,17 @@
                         </ul>
                     </div>
                     <div class="divFormAlert">
-                        <form action="">
-                            <label for="lapor">Form Pelaporan</label>
-                            <textarea name="lapor" id="lapor"
-                                placeholder="Deskripsikan kesalahan yang terjadiapp/views."></textarea>
+                        <form action="index.php?action=hasil" method="post">
+                            <label for="keterangan">Form Pelaporan</label>
+                            <textarea <?= !empty($dataL) ? 'disabled' : '' ?> name="keterangan" id="keterangan"
+                                placeholder="Deskripsikan kesalahan yang terjadiapp/views."><?= !empty($dataL) ? $dataL['keterangan'] : ''  ?></textarea>
                             <div>
-                                <button class="btnSend">
-                                    <i class='bx bxs-send'></i>
-                                    <p>KIRIM</p>
-                                </button>
+                                <?php if (empty($dataL)): ?>
+                                    <button class="btnSend">
+                                        <i class='bx bxs-send'></i>
+                                        <p>KIRIM</p>
+                                    </button>
+                                <?php endif; ?>
                             </div>
                         </form>
                     </div>

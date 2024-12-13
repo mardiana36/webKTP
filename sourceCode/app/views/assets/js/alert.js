@@ -25,6 +25,7 @@ function alertWarning(title, text, link) {
     }
   });
 }
+
 function alertSuksessH(title, text, link) {
   swal({
     title: title,

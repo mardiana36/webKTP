@@ -6,7 +6,6 @@
     <!-- Custom Stylesheet -->
     <link href="app/views/assets/plugins/jquery-steps/css/jquery.steps.css" rel="stylesheet">
     <link href="app/views/assets/css/style.css" rel="stylesheet">
-    <link href="app/views/assets/css/styleCalendar.css" rel="stylesheet">
 
     <link href="app/views/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
     <link href="app/views/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">

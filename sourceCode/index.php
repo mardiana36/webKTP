@@ -269,13 +269,6 @@ switch ($action) {
         $pemesananController->delete($id);
         require "app/views/components/footers.php";
         break;
-        // case "loginFalse":
-        //     $_SESSION['page'] = "Login";
-        //     require "app/views/components/headers.php";
-        //     echo "<script src='app/views/assets/js/alert.js'></script>";
-        //     $userController->login();
-        //     echo "<script>showSweetAlert('Oops...', 'The email/username or password you entered is incorrect!!!');</script>";
-        //     break;
     case "logout":
         $userController->logout();
         break;

@@ -48,6 +48,7 @@ $(document).ready(function () {
     }
   }
   dragAndDrop("#drop-area", "#file-input", "#preview-img");
+
   function ttd(idCanvas, idTtd, idBtnClear, idBtnSave) {
     let canvas = $(idCanvas)[0];
     let ctx = canvas.getContext("2d");
@@ -132,7 +133,6 @@ $(document).ready(function () {
       let minY = originalCanvas.height;
       let maxY = 0;
   
-      // Mencari batas dari tanda tangan yang digambar
       for (let y = 0; y < originalCanvas.height; y++) {
         for (let x = 0; x < originalCanvas.width; x++) {
           const index = (y * originalCanvas.width + x) * 4;
@@ -151,22 +151,19 @@ $(document).ready(function () {
       maxX = Math.min(originalCanvas.width, maxX + padding);
       maxY = Math.min(originalCanvas.height, maxY + padding);
   
-      // Menghitung ukuran canvas baru berdasarkan batas tanda tangan
       const croppedWidth = maxX - minX;
       const croppedHeight = maxY - minY;
   
-      // Membuat canvas baru untuk cropped image
       const croppedCanvas = document.createElement("canvas");
       const croppedCtx = croppedCanvas.getContext("2d");
   
       croppedCanvas.width = croppedWidth;
       croppedCanvas.height = croppedHeight;
-  
-      // Memindahkan tanda tangan ke posisi tengah canvas baru
+
       croppedCtx.drawImage(
         originalCanvas,
-        minX, minY, croppedWidth, croppedHeight, // source area
-        0, 0, croppedWidth, croppedHeight // target area
+        minX, minY, croppedWidth, croppedHeight,
+        0, 0, croppedWidth, croppedHeight 
       );
   
       return croppedCanvas;

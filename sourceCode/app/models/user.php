@@ -49,23 +49,4 @@ class user
         }
         return false;
     }
-    public function update()
-    {
-        $query = "UPDATE " . $this->tableName . " SET username=:username, password=:password, email=:email, role=:role WHERE id=:id";
-        $stmt =  $this->conn->prepare($query);
-        $this->username = htmlspecialchars(strip_tags($this->username));
-        $this->password = htmlspecialchars(strip_tags($this->password));
-        $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->role = $this->role;
-
-        $stmt->bindParam(":id", $this->id);
-        $stmt->bindParam(":username", $this->username);
-        $stmt->bindParam(":password", $this->password);
-        $stmt->bindParam(":email", $this->email);
-        $stmt->bindParam(":role", $this->role);
-        if ($stmt->execute()) {
-            return true;
-        }
-        return false;
-    }
 }
