@@ -12,7 +12,9 @@
   border-radius: 20px;
   position: unset;
 }
-
+.swal-text {
+  text-align: center !important;
+}
 #containerL::before {
   position: absolute;
   top: 0;

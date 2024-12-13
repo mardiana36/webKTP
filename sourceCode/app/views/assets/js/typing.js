@@ -1,7 +1,7 @@
 $(function () {
     function typing() {
         const sentences = [
-          "Welcome to KTP Online!",
+          "Welcome to E-KTP!",
           "Bikin KTP Jadi Lebih Mudah!",
         ];
       

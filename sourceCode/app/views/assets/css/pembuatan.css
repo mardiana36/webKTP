@@ -3,6 +3,7 @@ p {
 }
 .divTitle{
     margin-bottom: 20px;
+    cursor: grabbing;
 }
 
 #preview-img {
@@ -151,8 +152,23 @@ input:focus {
     position: relative;
     width: 100%;
     height: max-content;
+    cursor: url('../images/pencil.png') 1 26 , pointer;
 }
-
+.imgPemPB1{
+    display: none;
+    min-width: 100%;
+    max-width: 100%;
+    position: absolute;
+    height: 150px;
+    left: 0;
+    top: 0;
+    cursor: not-allowed;
+}
+.imgPemPB1 > img{
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}
 .btnNext {
     background-color: var(--Blue);
     color: var(--white);
@@ -203,7 +219,7 @@ input:focus {
     min-width: 80%;
 }
 
-.cardFormp2 p {
+.cardFormp2 > p {
     color: rgb(218, 5, 5);
     text-align: left;
     font-size: 11px !important;
