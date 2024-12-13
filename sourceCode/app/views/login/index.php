@@ -27,17 +27,17 @@
                         <h1>Login</h1>
                     </div>
 
-                    <form action="" class="formLogin">
+                    <form action="index.php?action=login" method="post" class="formLogin">
                         <div class="divInputLogin">
                             <label for="emailLogin">Email / Username</label>
-                            <input type="email" id="emailLogin" required >
+                            <input type="text" name="usernameOrEmail" id="emailLogin" required >
                             <div class="divIconLogin">
                                 <i class='bx bxs-user'></i>
                             </div>
                         </div>
                         <div class="divInputLogin">
                             <label for="passwordLogin">Password</label>
-                            <input type="password" minlength="8" key="password" class="statusActive" id="passwordLogin" required>
+                            <input type="password" minlength="8" key="password" name="password" class="statusActive" id="passwordLogin" required>
                             <div class="divIconLogin">
                                 <i class='bx bxs-lock iconPassword'></i>
                             </div>

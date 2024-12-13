@@ -14,6 +14,9 @@
     min-height: max-content;
     min-height: 100vh;
 }
+.kab{
+    text-transform: uppercase;
+}
 .contentH1{
     display: flex;
     align-items: center;
@@ -77,7 +80,7 @@
 .tabelKTP tr td h3{
     font-size: 18px;
     padding: 5px 0;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-wrap: nowrap;
     font-family: monospace;
     color: #000000;
@@ -124,18 +127,15 @@
 }
 .imgTTD{
 position: relative;
-
+max-width: 120px;
 }
 #ktp{
     width: max-content;
     height: max-content;
 }
 .imgTTD img{
-    top: -10px;
-    left: -60px;
-    width: 300px; 
-    height: auto; 
-    position: absolute;
+    width: 100%;
+    object-fit: contain;
 }
 .ktpBelakang{
     margin-top: 20px;
