@@ -45,6 +45,11 @@ class dashboardController {
         $stmtPembuatan->execute();
         $totalPembuatan = $stmtPembuatan->fetch(PDO::FETCH_ASSOC)['total_pembuatan'];
 
+        $queryLaporan = "SELECT COUNT(*) AS total_laporan FROM laporan WHERE status='LP'";
+        $stmtLaporan = $this->db->prepare($queryLaporan);
+        $stmtLaporan->execute();
+        $totalLaporan = $stmtLaporan->fetch(PDO::FETCH_ASSOC)['total_laporan'];
+
         setlocale(LC_TIME, 'id_ID');
         $tanggal_hari_ini = date('d F Y');
 

@@ -93,21 +93,23 @@
                                             <label class="col-lg-4 col-form-label" for="pathKK">Foto KK<span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <img src="app/views/assets/images/foto/<?=$data['pathKK']?>" width="80" alt="">
+                                                <img src="app/views/assets/images/foto/<?=$data['pathKK']?>" width="550"  alt="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="pathRekumendasi">Foto Surat Rekomendasi<span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <img src="app/views/assets/images/foto/<?=$data['pathRekumendasi']?>" width="80" alt="">
+                                                <img src="app/views/assets/images/foto/<?=$data['pathRekumendasi']?>" width="550"  alt="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-8 ml-auto">
-                                            <button type="submit" class="btn btn-primary" style="background-color: #009BF4;">Kembali</button>
-                                        <a href=""  class="sweet-confirm"  data-toggle="tooltip" data-placement="top" title="Approve">
+                                        <a href="index.php?action=radminPengajuan"  data-toggle="tooltip" data-placement="top" title="Approve">
+                                            <button class="btn btn-primary" style="background-color: #009BF4;">Kembali</button>
+                                        </a>
+                                        <a href="index.php?action=aPengajuan&id=<?= $data['id'] ?>"  class="sweet-confirm"  data-toggle="tooltip" data-placement="top" title="Approve">
                                             <button class="btn btn-primary" style="background-color: #009BF4;">Approve</button>
                                         </a>
                                     </div>

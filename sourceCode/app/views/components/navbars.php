@@ -1,6 +1,6 @@
+<body>
 <!--*******************
         Preloader start
- ********************-->
 <div id="preloader">
     <div class="loader">
         <svg class="circular" viewBox="25 25 50 50">
@@ -113,6 +113,14 @@
                     <ul aria-expanded="false">
                         <li><a href="index.php?action=radminPengajuan">Pengajuan</a></li>
                         <li><a href="index.php?action=radminPembuatan">Pembuatan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="fas fa-flag menu-icon"></i> <span class="nav-text">Laporan</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="index.php?action=radminLaporan">Laporan Hasil KTP</a></li>
                     </ul>
                 </li>
             </ul>

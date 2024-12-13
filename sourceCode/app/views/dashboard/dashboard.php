@@ -23,7 +23,7 @@
           <div class="card-body">
             <h3 class="card-title text-white">Pengajuan</h3>
             <div class="d-inline-block">
-              <h2 class="text-white"><?= $totalPengajuan ?></h2>
+              <h2 class="text-white" id="totalPengajuan"><?= $totalPengajuan ?></h2>
               <p class="text-white mb-0"><?= $tanggal_hari_ini  ?></p>
             </div>
             <span class="float-right display-5 opacity-5"><i class="fa fa-users"><a href="index.html"></a></i></span>
@@ -35,10 +35,22 @@
           <div class="card-body">
             <h3 class="card-title text-white">Pembuatan</h3>
             <div class="d-inline-block">
-              <h2 class="text-white"><?= $totalPembuatan ?></h2>
+              <h2 class="text-white" id="totalPembuatan"><?= $totalPembuatan ?></h2>
               <p class="text-white mb-0"><?= $tanggal_hari_ini  ?></p>
             </div>
             <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="card gradient-1">
+          <div class="card-body">
+            <h3 class="card-title text-white">Laporan</h3>
+            <div class="d-inline-block">
+              <h2 class="text-white" id="totalLaporan"><?= $totalLaporan ?></h2>
+              <p class="text-white mb-0"><?= $tanggal_hari_ini  ?></p>
+            </div>
+            <span class="float-right display-5 opacity-5"><i class="fa fa-flag"></i></span>
           </div>
         </div>
       </div>
@@ -70,11 +82,11 @@
                                       if ($row['status'] == 'PJ') {
                                           echo 'Pengajuan';
                                       } elseif ($row['status'] == 'PJC') {
-                                          echo 'Pengajuan Dicek';
+                                          echo 'Pengajuan <i class="fas fa-check color-muted m-r-5" style="color: #009bf4;"></i>';
                                       } elseif ($row['status'] == 'PB') {
                                           echo 'Pembuatan';
                                       } elseif ($row['status'] == 'PBC') {
-                                          echo 'Pembuatan Dicek';
+                                          echo 'Pembuatan <i class="fas fa-check color-muted m-r-5" style="color: #009bf4;"></i>';
                                       }
                                   ?>
                               </td>
@@ -82,7 +94,7 @@
                                   <a href="<?php
                                       if (isset($row['status'])) {
                                           if ($row['status'] == 'PJ' || $row['status'] == 'PJC') {
-                                              echo "index.php?action=uadminPengajuan&id=" . $row['pengajuan_id']; 
+                                              echo "index.php?action=vadminPengajuan&id=" . $row['pengajuan_id']; 
                                           } elseif ($row['status'] == 'PB' || $row['status'] == 'PBC') {
                                               echo "index.php?action=vadminPembuatan&id=" . $row['pembuatan_id'];  
                                           }
@@ -104,5 +116,19 @@
       </div>     
     </div>
   </div>
-  <!-- #/ container -->
+  
 </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; 2024 Dinas Kependudukan dan Pencatatan Sipil</p>
+            </div>
+        </div>
+  
+</div>
+<?php
+include "app/views/components/scripts.php"
+
+?>
+<script src='app/views/assets/js/count.js'></script>
+</body>
+</html>

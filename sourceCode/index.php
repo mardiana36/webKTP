@@ -14,6 +14,7 @@ include "app/controllers/pembuatanController.php";
 include "app/controllers/hasilController.php";
 include "app/controllers/adminPengajuanController.php";
 include "app/controllers/adminPembuatanController.php";
+include "app/controllers/adminLaporanController.php";
 $berandaController = new berandaController();
 $userController = new userController();
 $tamuController = new tamuController();
@@ -26,6 +27,7 @@ $dashboardController = new dashboardController();
 $pengajuanController = new pengajuanController();
 $pembuatanController = new pembuatanController();
 $hasilController = new hasilController();
+$adminLaporanController = new adminLaporanController();
 
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
@@ -113,8 +115,7 @@ switch ($action) {
         $_SESSION['page'] = "Admin Pengajuan";
         require "app/views/components/headers.php";
         require "app/views/components/navbars.php";
-        $adminPengajuanController->index();
-        require "app/views/components/footers.php";
+        $adminPengajuanController->getAdminPengajuan();
         break;
     case "vadminPengajuan":
         $_SESSION['page'] = "Edit Pengajuan";
@@ -127,8 +128,13 @@ switch ($action) {
         $_SESSION['page'] = "Admin Pembuatan";
         require "app/views/components/headers.php";
         require "app/views/components/navbars.php";
-        $adminPembuatanController->index();
-        require "app/views/components/footers.php";
+        $adminPembuatanController->getAdminPembuatan();
+        break;
+    case "radminLaporan":
+        $_SESSION['page'] = "Admin Pembuatan";
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminLaporanController->getAdminLaporan();
         break;
     case "vadminPembuatan":
         $_SESSION['page'] = "View Pembuatan";
@@ -161,6 +167,12 @@ switch ($action) {
         require "app/views/components/headers.php";
         require "app/views/components/navbars.php";
         $adminPembuatanController->approve($id);
+        require "app/views/components/footers.php";
+        break;
+    case "aLaporan":
+        require "app/views/components/headers.php";
+        require "app/views/components/navbars.php";
+        $adminLaporanController->approve($id);
         require "app/views/components/footers.php";
         break;
     case "cTamu":
@@ -238,7 +250,18 @@ switch ($action) {
         require "app/views/components/headers.php";
         require "app/views/components/navbars.php";
         $dashboardController->getDashboardData();
-        require "app/views/components/footers.php";
+        break;
+    case "getDashboardData":
+        $dashboardController->getDashboardData();
+        break;
+    case "getAdminPengajuan":
+        $adminPengajuanController->getAdminPengajuan();
+        break;
+    case "getAdminPembuatan":
+        $adminPembuatanController->getAdminPembuatan();
+        break;
+    case "getAdminLaporan":
+        $adminLaporanController->getAdminLaporan();
         break;
     case "dTamu":
         require "app/views/components/headers.php";

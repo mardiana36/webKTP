@@ -33,11 +33,20 @@ class adminPembuatan
 
     public function showPembuatan($id)
     {
+        $queryUpdate = "UPDATE " . $this->table_name . " SET status=:status WHERE id=:id";
+        $stmtUpdate = $this->conn->prepare($queryUpdate);
+        $this->status = "PBC"; 
+        $stmtUpdate->bindParam(":id", $id);
+        $stmtUpdate->bindParam(":status", $this->status);
+        $stmtUpdate->execute(); 
+
         $query = "SELECT * FROM " . $this->table_name . " WHERE id=:id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         return $stmt;
+
+        
     }
 
     public function updatePembuatan()
@@ -61,18 +70,17 @@ class adminPembuatan
 
     public function viewPembuatan()
     {
-        $query = "UPDATE " . $this->table_name . " SET pathFoto=:pathFoto, pathTtd=:pathTtd, status=:status WHERE id=:id";
+        $query = "UPDATE " . $this->table_name . " SET pathFoto=:pathFoto, pathTtd=:pathTtd WHERE id=:id";
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->pathFoto = htmlspecialchars(strip_tags($this->pathFoto));
         $this->pathTtd = htmlspecialchars(strip_tags($this->pathTtd));
-        $this->status = "PBC"; 
+        
 
         $stmt->bindParam(":id", $this->id);
         $stmt->bindParam(":pathFoto", $this->pathFoto);
         $stmt->bindParam(":pathTtd", $this->pathTtd);
-        $stmt->bindParam(":status", $this->status);
         if ($stmt->execute()) {
             return true;
         }

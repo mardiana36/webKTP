@@ -15,7 +15,7 @@ class adminPembuatanController
         $this->adminPembuatan = new adminPembuatan($this->db);
     }
 
-    public function index()
+    public function getAdminPembuatan()
     {
         $stmt = $this->adminPembuatan->readPembuatan();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -29,11 +29,25 @@ class adminPembuatanController
             $pathTtd = $_POST['pathTtd'];
             $status = $_POST['status'];
 
+            $stmt = $this->adminPembuatan->showPembuatan($id);
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $pathFoto = $this->processFileUpload('pathFoto', $data['pathFoto']); 
+            if ($pathKK === false) {
+            echo "<script>alert('Terjadi kesalahan saat upload foto KK!');</script>";
+            return; 
+            }
+
+             $pathTtd = $this->processFileUpload('pathTtd', $data['pathTtd']);
+             if ($pathRekumendasi === false) {
+            echo "<script>alert('Terjadi kesalahan saat upload foto Rekomendasi!');</script>";
+            return;
+            }
+
             $this->adminPembuatan->id = $id;
             $this->adminPembuatan->pathFoto = $pathFoto;
             $this->adminPembuatan->pathTtd = $pathTtd;
             $this->adminPembuatan->status = $status;
-
 
             if ($this->adminPembuatan->updatePembuatan()) {
                 echo "<script>window.location.href = 'index.php?action=radminPembuatan';</script>";
@@ -48,31 +62,24 @@ class adminPembuatanController
             } else {
                 echo "User not found.";
             }
+
+
         }
     }
 
-        public function view($id){
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $pathFoto = $_POST['pathFoto'];
-            $pathTtd = $_POST['pathTtd'];
+    public function view($id){
+        $stmt = $this->adminPembuatan->showPembuatan($id);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $this->adminPembuatan->id = $id;
-            $this->adminPembuatan->pathFoto = $pathFoto;
-            $this->adminPembuatan->pathTtd = $pathTtd;
-
-            if ($this->adminPembuatan->viewPembuatan()) {
+        if ($data) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
                 echo "<script>window.location.href = 'index.php?action=radminPembuatan';</script>";
-            } else {
-                echo "<script>alert('Terjadi kesalahan pada saat update!');</script>";
+                exit();
+            } else { 
+                include 'app/views/adminPembuatan/view.php'; 
             }
         } else {
-            $stmt = $this->adminPembuatan->showPembuatan($id);
-            $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($data) {
-                include 'app/views/adminPembuatan/view.php';
-            } else {
-                echo "User not found.";
-            }
+            echo "Data not found."; 
         }
     }
 
