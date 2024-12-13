@@ -3,10 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 include "app/controllers/userController.php";
-include "app/controllers/tamuController.php";
-include "app/controllers/kamarController.php";
-include "app/controllers/pembayaranController.php";
-include "app/controllers/pemesananController.php";
 include "app/controllers/dashboardController.php";
 include "app/controllers/berandaController.php";
 include "app/controllers/pengajuanController.php";
@@ -17,10 +13,6 @@ include "app/controllers/adminPembuatanController.php";
 include "app/controllers/adminLaporanController.php";
 $berandaController = new berandaController();
 $userController = new userController();
-$tamuController = new tamuController();
-$kamarController = new kamarController();
-$pembayaranController = new pembayaranController();
-$pemesananController = new pemesananController();
 $adminPengajuanController = new adminPengajuanController();
 $adminPembuatanController = new adminPembuatanController();
 $dashboardController = new dashboardController();
@@ -36,22 +28,34 @@ if (empty($_SESSION["login"]) && ($action == 'pengajuan' ||  $action == 'pembuat
     echo `
 <script src="app/views/assets/js/templateAlert.js"></script>
 <script src="app/views/assets/js/alert.js"></script>`;
-$action = "index.php?action=login";
-echo "<script>document.addEventListener('DOMContentLoaded', () => {
+    $action = "index.php?action=login";
+    echo "<script>document.addEventListener('DOMContentLoaded', () => {
     alertWarning('Peringatan!', 'Halam ini hanya bisa di akses ketika anda sudah login!', 'index.php?action=login');
   })</script>";
-} 
-if (isset($_SESSION['role']) && $_SESSION['role'] != "admin") {
+}
+if (isset($_SESSION['role']) && $_SESSION['role'] != "1") {
     switch ($action) {
-        case "rUser":
-        case "uUser":
-        case "dUser":
-        case "cUser":
-        case "cInfokamar":
-        case "uInfokamar":
-        case "dInfokamar":
-            echo "<script>alert('Only Admin Can Access This Page!!!');</script>";
-            $action = "dashboard";
+        case "dashboard":
+        case "radminPengajuan":
+        case "radminPembuatan":
+        case "uadminPengajuan":
+        case "vadminPengajuan":
+        case "vadminPembuatan":
+        case "radminLaporan":
+        case "aLaporan":
+        case "aPembuatan":
+        case "aPengajuan":
+        case "getDashboardData":
+        case "getAdminPengajuan":
+        case "getAdminPembuatan":
+        case "getAdminLaporan":
+            echo `
+                <script src="app/views/assets/js/templateAlert.js"></script>
+                <script src="app/views/assets/js/alert.js"></script>`;
+            echo "<script>document.addEventListener('DOMContentLoaded', () => {
+                alertWarning('Peringatan!','Hanya Admin yang bisa akses halama ini!!!','index.php');
+              })</script>";
+            $action = "";
             break;
     }
 }
@@ -75,41 +79,6 @@ switch ($action) {
     case "regis":
         $_SESSION['page'] = "Registrasi";
         $userController->regis();
-        break;
-    case "rTamu":
-        $_SESSION['page'] = "Guest";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $tamuController->index();
-        require "app/views/components/footers.php";
-        break;
-    case "rUser":
-        $_SESSION['page'] = "User";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $userController->index();
-        require "app/views/components/footers.php";
-        break;
-    case "rInfokamar":
-        $_SESSION['page'] = "Room";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $kamarController->index();
-        require "app/views/components/footers.php";
-        break;
-    case "rPembayaran":
-        $_SESSION['page'] = "Payment";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $pembayaranController->index();
-        require "app/views/components/footers.php";
-        break;
-    case "rPemesanan":
-        $_SESSION['page'] = "Reservation";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $pemesananController->index();
-        require "app/views/components/footers.php";
         break;
     case "radminPengajuan":
         $_SESSION['page'] = "Admin Pengajuan";
@@ -150,13 +119,6 @@ switch ($action) {
         $adminPengajuanController->update($id);
         require "app/views/components/footers.php";
         break;
-    case "uadminPembuatan":
-        $_SESSION['page'] = "Edit Pembuatan";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $adminPembuatanController->update($id);
-        require "app/views/components/footers.php";
-        break;
     case "aPengajuan":
         require "app/views/components/headers.php";
         require "app/views/components/navbars.php";
@@ -173,76 +135,6 @@ switch ($action) {
         require "app/views/components/headers.php";
         require "app/views/components/navbars.php";
         $adminLaporanController->approve($id);
-        require "app/views/components/footers.php";
-        break;
-    case "cTamu":
-        $_SESSION['page'] = "Add Guest";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $tamuController->create();
-        require "app/views/components/footers.php";
-        break;
-    case "cUser":
-        $_SESSION['page'] = "Add User";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $userController->create();
-        require "app/views/components/footers.php";
-        break;
-    case "cInfokamar":
-        $_SESSION['page'] = "Add Room";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $kamarController->create();
-        require "app/views/components/footers.php";
-        break;
-    case "cPembayaran":
-        $_SESSION['page'] = "Add Payment";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $pembayaranController->create($pemesananController->get());
-        require "app/views/components/footers.php";
-        break;
-    case "cPemesanan":
-        $_SESSION['page'] = "Add Reservation";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $pemesananController->create($tamuController->get(), $kamarController->get());
-        require "app/views/components/footers.php";
-        break;
-    case "uTamu":
-        $_SESSION['page'] = "Edit Guest";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $tamuController->update($id);
-        require "app/views/components/footers.php";
-        break;
-    case "uUser":
-        $_SESSION['page'] = "Edit User";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $userController->update($id);
-        require "app/views/components/footers.php";
-        break;
-    case "uInfokamar":
-        $_SESSION['page'] = "Edit Room";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $kamarController->update($id);
-        require "app/views/components/footers.php";
-        break;
-    case "uPembayaran":
-        $_SESSION['page'] = "Edit Payment";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $pembayaranController->update($id, $pemesananController->get());
-        require "app/views/components/footers.php";
-        break;
-    case "uPemesanan":
-        $_SESSION['page'] = "Edit Reservation";
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $pemesananController->update($id, $tamuController->get(), $kamarController->get());
         require "app/views/components/footers.php";
         break;
     case "dashboard":
@@ -263,35 +155,6 @@ switch ($action) {
     case "getAdminLaporan":
         $adminLaporanController->getAdminLaporan();
         break;
-    case "dTamu":
-        require "app/views/components/headers.php";
-        $tamuController->delete($id);
-        require "app/views/components/footers.php";
-        break;
-    case "dUser":
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $userController->delete($id);
-        require "app/views/components/footers.php";
-        break;
-    case "dInfokamar":
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $kamarController->delete($id);
-        require "app/views/components/footers.php";
-        break;
-    case "dPembayaran":
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $pembayaranController->delete($id);
-        require "app/views/components/footers.php";
-        break;
-    case "dPemesanan":
-        require "app/views/components/headers.php";
-        require "app/views/components/navbars.php";
-        $pemesananController->delete($id);
-        require "app/views/components/footers.php";
-        break;
     case "logout":
         $userController->logout();
         break;
@@ -300,4 +163,3 @@ switch ($action) {
         $berandaController->beranda();
         break;
 }
-

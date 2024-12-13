@@ -1,21 +1,4 @@
 <body>
-<!--*******************
-        Preloader start
-<div id="preloader">
-    <div class="loader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-        </svg>
-    </div>
-</div>
-<!--*******************
-        Preloader end
-    ********************-->
-
-
-<!--**********************************
-        Main wrapper start
-    ***********************************-->
 <div id="main-wrapper">
 
     <!--**********************************
@@ -23,7 +6,7 @@
         ***********************************-->
     <div class="nav-header">
         <div class="brand-logo">
-            <a href="">
+            <a href="index.php?action=beranda">
                 <b class="logo-abbr"><img src="" alt=""></b>
                 <span class="logo-compact"> <img src="" alt=""></span>
                 <span class="brand-title">
@@ -49,20 +32,6 @@
             </div>
             <div class="header-right">
                 <ul class="clearfix">
-
-                    <li class="icons dropdown d-none d-md-flex">
-                        <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
-                            <span>English</span> <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
-                        </a>
-                        <div class="drop-down dropdown-language animated fadeIn  dropdown-menu">
-                            <div class="dropdown-content-body">
-                                <ul>
-                                    <li><a href="javascript:void()">English</a></li>
-                                    <li><a href="javascript:void()">Indonesia</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
                     <li class="icons dropdown">
                         <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                         

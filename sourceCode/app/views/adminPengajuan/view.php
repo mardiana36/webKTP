@@ -93,14 +93,14 @@
                                             <label class="col-lg-4 col-form-label" for="pathKK">Foto KK<span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <img src="app/views/assets/images/foto/<?=$data['pathKK']?>" width="550"  alt="">
+                                                <img src="app/views/assets/images/kk/<?=$data['pathKK']?>" width="550"  alt="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="pathRekumendasi">Foto Surat Rekomendasi<span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <img src="app/views/assets/images/foto/<?=$data['pathRekumendasi']?>" width="550"  alt="">
+                                                <img src="app/views/assets/images/ssR/<?=$data['pathRekumendasi']?>" width="550"  alt="">
                                             </div>
                                         </div>
                                     </div>

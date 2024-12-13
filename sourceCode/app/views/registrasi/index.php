@@ -85,7 +85,7 @@
             </div>
         </section>
     </main>
-    <?php require("app/views/components/footers.php") ?>
+    <?php require("app/views/components/footersUser.php") ?>
     <script src="app/views/assets/plugins/sweetalert/js/sweetalert.min.js"></script>
     <script src="app/views/assets/js/login.js"></script>
 </body>

@@ -173,7 +173,7 @@ if (isset($_SESSION['pengajuan'])) {
             </div>
         </Section>
     </main>
-    <?php require("app/views/components/footers.php") ?>
+    <?php require("app/views/components/footersUser.php") ?>
 </body>
 
 </html>

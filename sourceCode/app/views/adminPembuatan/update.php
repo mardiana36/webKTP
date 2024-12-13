@@ -17,7 +17,7 @@
                                     <label class="col-lg-4 col-form-label" for="pasFoto">Pas Foto<span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <img src="app/views/assets/images/foto/<?= $data['pathFoto'] ?>" width="80" alt="">
+                                        <img src="app/views/assets/images/pathFoto/<?= $data['pathFoto'] ?>" width="80" alt="">
                                         <input type="file" class="form-control" accept=".jpg, .png, .jepg" id="pathFoto" name="pathFoto" placeholder="Pas Foto">
                                     </div>
                                 </div>
@@ -25,7 +25,7 @@
                                     <label class="col-lg-4 col-form-label" for="fotoTT">Tanda Tangan<span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <img src="app/views/assets/images/foto/<?= $data['pathTtd'] ?>" width="80" alt="">
+                                        <img src="app/views/assets/images/pathTtd/<?= $data['pathTtd'] ?>" width="80" alt="">
                                         <input type="file" class="form-control" accept=".jpg, .png, .jepg" id="pathTtd" name="pathTtd" placeholder="Pas Foto">
                                     </div>
                                 </div>

@@ -74,7 +74,7 @@ public function update($id)
             echo "<script>alert('Terjadi kesalahan pada saat update!');</script>";
         }
     } else {
-        $stmt = $this->adminPengajuan->showPengajuan($id);
+            $stmt = $this->adminPengajuan->showUpdate($id);
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($data) {
             include 'app/views/adminPengajuan/update.php';
@@ -103,10 +103,13 @@ public function update($id)
 
         private function processFileUpload($fieldName, $oldFilePath) {
         if ($_FILES[$fieldName]['error'] === UPLOAD_ERR_OK) {
-            $target_dir = "app/views/assets/images/foto/";
+            if ($fieldName == 'pathKK') {
+                $target_dir = "app/views/assets/images/kk/";
+            } elseif ($fieldName == 'pathRekumendasi') {
+                $target_dir = "app/views/assets/images/ssR/";
+            }
             $target_file = $target_dir . basename($_FILES[$fieldName]["name"]);
-            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-            var_dump($_FILES);
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
             if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                 echo "<script>alert('Tipe file $fieldName tidak valid!');</script>";
                 return false;

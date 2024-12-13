@@ -31,8 +31,8 @@
                                          <?php foreach ($data as $u) : ?>
                                              <tr>
                                                  <td><?= ++$no ?></td>
-                                                 <td><img src="app/views/assets/images/foto/<?=$u['pathKK'] ?>" width="100" alt=""></td>
-                                                 <td><img src="app/views/assets/images/foto/<?=$u['pathRekumendasi'] ?>" width="100" alt=""></td>
+                                                 <td><img src="app/views/assets/images/kk/<?=$u['pathKK'] ?>" width="100" alt=""></td>
+                                                 <td><img src="app/views/assets/images/ssR/<?=$u['pathRekumendasi'] ?>" width="100" alt=""></td>
                                                  <td><?= $u['nama'] ?></td>
                                                  <td><?= $u['nik'] ?></td>
                                                  <td><?= $u['status'] == 'PJ' ? 'Pengajuan' : ($u['status'] == 'PJC' ? 'Pengajuan <i class="fas fa-check color-muted m-r-5" style="color: #009bf4;"></i> ' : '') ?></td>
