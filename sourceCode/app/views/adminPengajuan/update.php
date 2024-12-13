@@ -111,7 +111,7 @@
                                             <label class="col-lg-4 col-form-label" for="pathKK">Foto KK<span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <img src="app/views/assets/images/foto/<?=$data['pathKK']?>" width="80" alt="">
+                                                <img src="app/views/assets/images/kk/<?=$data['pathKK']?>" width="80" alt="">
                                                 <input type="file" class="form-control" accept=".jpg, .png, .jepg" id="pathKK" name="pathKK" placeholder="Foto KK">
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@
                                             <label class="col-lg-4 col-form-label" for="pathRekumendasi">Foto Surat Rekomendasi<span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <img src="app/views/assets/images/foto/<?=$data['pathRekumendasi']?>" width="80" alt="">
+                                                <img src="app/views/assets/images/ssR/<?=$data['pathRekumendasi']?>" width="80" alt="">
                                                 <input type="file" class="form-control" accept=".jpg, .png, .jepg" id="pathRekumendasi" name="pathRekumendasi" placeholder="Foto Surat Rekomendasi">
                                             </div>
                                         </div>

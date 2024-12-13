@@ -30,8 +30,8 @@
                                         <?php foreach ($data as $ik) : ?>
                                             <tr>
                                                 <td><?= ++$no?></td>
-                                                <td><img src="app/views/assets/images/foto/<?=$ik['pathFoto'] ?>" width="100" alt=""></td>
-                                                <td><img src="app/views/assets/images/foto/<?=$ik['pathTtd'] ?>" width="100" alt=""></td>
+                                                <td><img src="app/views/assets/images/pathFoto/<?=$ik['pathFoto'] ?>" width="100" alt=""></td>
+                                                <td><img src="app/views/assets/images/pathTtd/<?=$ik['pathTtd'] ?>" width="100" alt=""></td>
                                                 <td><?= $ik['nik'] ?></td>
                                                 <td><?= $ik['nama'] ?></td>
                                                 <td><?= ($ik['status'] == 'PB') ? "Pembuatan" : (($ik['status'] == 'PBC') ? 'Pembuatan <i class="fas fa-check color-muted m-r-5" style="color: #009bf4;"></i>' : ""); ?></td>

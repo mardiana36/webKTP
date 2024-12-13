@@ -196,7 +196,7 @@ if (isset($_SESSION['pembuatan'])) {
             </div>
         </Section>
     </main>
-    <?php require("app/views/components/footers.php") ?>
+    <?php require("app/views/components/footersUser.php") ?>
     <script src="app/views/assets/js/submitForm.js"></script>
 </body>
 

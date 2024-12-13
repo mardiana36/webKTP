@@ -16,6 +16,8 @@ class adminPengajuan
     public $negara;
     public $golDarah;
     public $status;
+    public $pathKK;
+    public $pathRekumendasi;
 
     public function __construct($db)
     {
