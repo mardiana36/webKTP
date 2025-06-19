@@ -14,6 +14,6 @@ Berikut ini adalah link website dan akaun admin website ini:
 - Jika ada yang ingin mencoba role admin untuk website ini anda bisa login dengan data berikut:
   - username: mardiana
   - password: mardiana1234
-
+- Jika ingin login sebagi user biasa anda bisa registrasi terlebih dahulu (jangan gunakan email dan password asli).
 
 
